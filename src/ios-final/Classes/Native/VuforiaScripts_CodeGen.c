@@ -1,0 +1,231 @@
+﻿#include "il2cpp-config.h"
+
+#ifndef _MSC_VER
+# include <alloca.h>
+#else
+# include <malloc.h>
+#endif
+
+
+
+#include "codegen/il2cpp-codegen-metadata.h"
+
+
+
+
+
+IL2CPP_EXTERN_C_BEGIN
+IL2CPP_EXTERN_C_END
+
+
+
+
+// 0x00000001 System.Void BoundingBoxRenderer::OnRenderObject()
+extern void BoundingBoxRenderer_OnRenderObject_m68673644D738E5BD11923B80B42A154C6C269BC6 ();
+// 0x00000002 System.Void BoundingBoxRenderer::.ctor()
+extern void BoundingBoxRenderer__ctor_m4F81CCB945436A775EB635BE64E469FEA1C6C639 ();
+// 0x00000003 System.Void DefaultInitializationErrorHandler::OnVuforiaInitializationError(Vuforia.VuforiaUnity_InitError)
+extern void DefaultInitializationErrorHandler_OnVuforiaInitializationError_mEBF42837CA97AF2CFA28D28A9A39988EC5413F7B ();
+// 0x00000004 System.Void DefaultInitializationErrorHandler::Awake()
+extern void DefaultInitializationErrorHandler_Awake_m4038C70C44A5DA1837B36861AA2B4305424FBB1B ();
+// 0x00000005 System.Void DefaultInitializationErrorHandler::Start()
+extern void DefaultInitializationErrorHandler_Start_m7A087FA88C9DAA849F754A3365E86782DCCF81DD ();
+// 0x00000006 System.Void DefaultInitializationErrorHandler::OnGUI()
+extern void DefaultInitializationErrorHandler_OnGUI_m906C10E3D218D97B9EA7526E95F72A1E1FC04040 ();
+// 0x00000007 System.Void DefaultInitializationErrorHandler::OnDestroy()
+extern void DefaultInitializationErrorHandler_OnDestroy_m504A72DB220B746C42FF75BA42482D64E49FDE17 ();
+// 0x00000008 System.Void DefaultInitializationErrorHandler::DrawWindowContent(System.Int32)
+extern void DefaultInitializationErrorHandler_DrawWindowContent_mB87D116DA38655853BC96A9211D1989E7EF33262 ();
+// 0x00000009 System.Void DefaultInitializationErrorHandler::SetErrorCode(Vuforia.VuforiaUnity_InitError)
+extern void DefaultInitializationErrorHandler_SetErrorCode_mCECD875BCA20516C39AE387C06AE94F1E9CA7B51 ();
+// 0x0000000A System.Void DefaultInitializationErrorHandler::SetErrorOccurred(System.Boolean)
+extern void DefaultInitializationErrorHandler_SetErrorOccurred_m7B8CBC12E402A15CD961945D0FC5E788D926554F ();
+// 0x0000000B System.String DefaultInitializationErrorHandler::getKeyInfo()
+extern void DefaultInitializationErrorHandler_getKeyInfo_m08AC1F25C54DB08BAF219BFF64570EB8385D8E1A ();
+// 0x0000000C System.Void DefaultInitializationErrorHandler::SetupGUIStyles()
+extern void DefaultInitializationErrorHandler_SetupGUIStyles_m1D91C7E31546279E161EFE09E6EC9EB59B9AE95C ();
+// 0x0000000D UnityEngine.Texture2D DefaultInitializationErrorHandler::CreateSinglePixelTexture(UnityEngine.Color)
+extern void DefaultInitializationErrorHandler_CreateSinglePixelTexture_m314E1B3B003A6F0253FD1A13070B93BCE6415AD6 ();
+// 0x0000000E System.Void DefaultInitializationErrorHandler::.ctor()
+extern void DefaultInitializationErrorHandler__ctor_m9C0FB8A494158D7304A5A6D94D681DF55B0D42FA ();
+// 0x0000000F System.Void DefaultModelRecoEventHandler::Start()
+extern void DefaultModelRecoEventHandler_Start_mE9E3D8D2B2AB37738B1C6F7473AD4356A565E25F ();
+// 0x00000010 System.Void DefaultModelRecoEventHandler::Update()
+extern void DefaultModelRecoEventHandler_Update_mDC58C379360938ACEFA1DDC53B32CA06E64A2DA3 ();
+// 0x00000011 System.Void DefaultModelRecoEventHandler::OnDestroy()
+extern void DefaultModelRecoEventHandler_OnDestroy_m39E5011DE3ECC4BD4A79AE8830212BE01E556E65 ();
+// 0x00000012 System.Void DefaultModelRecoEventHandler::OnInitialized(Vuforia.TargetFinder)
+extern void DefaultModelRecoEventHandler_OnInitialized_mFDD5794A2386BD764D0C646A87F925DDB2CD8E2A ();
+// 0x00000013 System.Void DefaultModelRecoEventHandler::OnInitError(Vuforia.TargetFinder_InitState)
+extern void DefaultModelRecoEventHandler_OnInitError_mB9195DBFE488078F0ECA77D17D2A0B584F00FAD3 ();
+// 0x00000014 System.Void DefaultModelRecoEventHandler::OnUpdateError(Vuforia.TargetFinder_UpdateState)
+extern void DefaultModelRecoEventHandler_OnUpdateError_mC8D6FEF4CF523F938A8C0D9EF7FE065197EEE242 ();
+// 0x00000015 System.Void DefaultModelRecoEventHandler::OnStateChanged(System.Boolean)
+extern void DefaultModelRecoEventHandler_OnStateChanged_mA8324CFE9BBD107EC2ACB9A2857AD825EC40E389 ();
+// 0x00000016 System.Void DefaultModelRecoEventHandler::OnNewSearchResult(Vuforia.TargetFinder_TargetSearchResult)
+extern void DefaultModelRecoEventHandler_OnNewSearchResult_mD52DF1B20F00770C87F72001D0AE58F9033E251D ();
+// 0x00000017 Vuforia.ModelTargetBehaviour DefaultModelRecoEventHandler::FindExistingModelTarget(Vuforia.TargetFinder_ModelRecoSearchResult)
+extern void DefaultModelRecoEventHandler_FindExistingModelTarget_mBE361609CBEC751571D7A486C152F90B03A1ABCA ();
+// 0x00000018 System.Void DefaultModelRecoEventHandler::ShowErrorMessageInUI(System.String)
+extern void DefaultModelRecoEventHandler_ShowErrorMessageInUI_m6CA52CF0093CC28BC4BCA765B4C701F10C476BEC ();
+// 0x00000019 UnityEngine.Bounds DefaultModelRecoEventHandler::GetModelTargetWorldBounds(Vuforia.ModelTargetBehaviour)
+extern void DefaultModelRecoEventHandler_GetModelTargetWorldBounds_m9435246FE4CBCD9FB2E5B15FE84FF56565248105 ();
+// 0x0000001A System.Boolean DefaultModelRecoEventHandler::IsModelTrackedInView(Vuforia.ModelTargetBehaviour)
+extern void DefaultModelRecoEventHandler_IsModelTrackedInView_m484B3B06B82A9C624B57993066A8501F09756D5C ();
+// 0x0000001B Vuforia.TargetFinder DefaultModelRecoEventHandler::GetTargetFinder()
+extern void DefaultModelRecoEventHandler_GetTargetFinder_mAA8E023461766F2C3066EA7F10AA5DBC1B02A64B ();
+// 0x0000001C System.Void DefaultModelRecoEventHandler::ResetModelReco(System.Boolean)
+extern void DefaultModelRecoEventHandler_ResetModelReco_m4E8F81D21371F5A517129E68E03B26851DE10C5D ();
+// 0x0000001D System.Void DefaultModelRecoEventHandler::.ctor()
+extern void DefaultModelRecoEventHandler__ctor_mF8A55D05AC2BBE488A59D7BB9C215DC2ADE68760 ();
+// 0x0000001E System.Void DefaultTrackableEventHandler::Start()
+extern void DefaultTrackableEventHandler_Start_m5A732F3C7EDB5E01C7CD5BDE821FF1B6C9E907ED ();
+// 0x0000001F System.Void DefaultTrackableEventHandler::OnDestroy()
+extern void DefaultTrackableEventHandler_OnDestroy_m1E2C6C4E61424614E5CC0CACED2C0B8EAC50C208 ();
+// 0x00000020 System.Void DefaultTrackableEventHandler::OnTrackableStateChanged(Vuforia.TrackableBehaviour_Status,Vuforia.TrackableBehaviour_Status)
+extern void DefaultTrackableEventHandler_OnTrackableStateChanged_m037F7353D61AC3E1BFEB93B7E51672578E783427 ();
+// 0x00000021 System.Void DefaultTrackableEventHandler::OnTrackingFound()
+extern void DefaultTrackableEventHandler_OnTrackingFound_mE63DDA2BD076BE6C6EE1235AD0F18AEBD6D199F6 ();
+// 0x00000022 System.Void DefaultTrackableEventHandler::OnTrackingLost()
+extern void DefaultTrackableEventHandler_OnTrackingLost_m8C2BEAB679465AE131946222D0F2D8FD39BD8CC3 ();
+// 0x00000023 System.Void DefaultTrackableEventHandler::.ctor()
+extern void DefaultTrackableEventHandler__ctor_m9DC3D237B7D42646DA70B26C5448A615595D1B67 ();
+// 0x00000024 System.Void Vuforia.UnityCompiled.RuntimeOpenSourceInitializer::OnRuntimeMethodLoad()
+extern void RuntimeOpenSourceInitializer_OnRuntimeMethodLoad_mBF0380D873784EBA1B5A42187D7F344ADA91E443 ();
+// 0x00000025 System.Void Vuforia.UnityCompiled.RuntimeOpenSourceInitializer::InitializeFacade()
+extern void RuntimeOpenSourceInitializer_InitializeFacade_m4E456DBA2604DD48341B172BE75E55AC76AFFBEE ();
+// 0x00000026 System.Void Vuforia.UnityCompiled.RuntimeOpenSourceInitializer::.ctor()
+extern void RuntimeOpenSourceInitializer__ctor_m865FD477A6A55C7FFDB9FBDF672E22BC9C3A92D8 ();
+// 0x00000027 Vuforia.UnityCompiled.IUnityRenderPipeline Vuforia.UnityCompiled.RuntimeOpenSourceInitializer_OpenSourceUnityCompiledFacade::get_UnityRenderPipeline()
+extern void OpenSourceUnityCompiledFacade_get_UnityRenderPipeline_mF28E5C96C8071CD96C310B5E2FA5DBD8644BF4D9 ();
+// 0x00000028 System.Void Vuforia.UnityCompiled.RuntimeOpenSourceInitializer_OpenSourceUnityCompiledFacade::.ctor()
+extern void OpenSourceUnityCompiledFacade__ctor_mB773D09AA7A4167A5E92922DA08FE6827570DA7C ();
+// 0x00000029 System.Void Vuforia.UnityCompiled.RuntimeOpenSourceInitializer_UnityRenderPipeline::add_BeginFrameRendering(System.Action`1<UnityEngine.Camera[]>)
+extern void UnityRenderPipeline_add_BeginFrameRendering_m9D259FD7AC5FC26A80C5DE8E25AE477714771252 ();
+// 0x0000002A System.Void Vuforia.UnityCompiled.RuntimeOpenSourceInitializer_UnityRenderPipeline::remove_BeginFrameRendering(System.Action`1<UnityEngine.Camera[]>)
+extern void UnityRenderPipeline_remove_BeginFrameRendering_m41048F48C42906494CA19BFD3D54B0F49EC2A02D ();
+// 0x0000002B System.Void Vuforia.UnityCompiled.RuntimeOpenSourceInitializer_UnityRenderPipeline::add_BeginCameraRendering(System.Action`1<UnityEngine.Camera>)
+extern void UnityRenderPipeline_add_BeginCameraRendering_mD4A5C6E21309929A0F5E9A5D6235998D2D309029 ();
+// 0x0000002C System.Void Vuforia.UnityCompiled.RuntimeOpenSourceInitializer_UnityRenderPipeline::remove_BeginCameraRendering(System.Action`1<UnityEngine.Camera>)
+extern void UnityRenderPipeline_remove_BeginCameraRendering_m2589F202EE39580EA9D2E951C7E71D866EECBA17 ();
+// 0x0000002D System.Void Vuforia.UnityCompiled.RuntimeOpenSourceInitializer_UnityRenderPipeline::.ctor()
+extern void UnityRenderPipeline__ctor_mBCF1D018D5EA889499AC8B84AB95B314CC7275DB ();
+// 0x0000002E System.Void Vuforia.UnityCompiled.RuntimeOpenSourceInitializer_UnityRenderPipeline::OnBeginCameraRendering(UnityEngine.Rendering.ScriptableRenderContext,UnityEngine.Camera)
+extern void UnityRenderPipeline_OnBeginCameraRendering_m15CB7AC8363F2493DF182B36D04EACC08258FA71 ();
+// 0x0000002F System.Void Vuforia.UnityCompiled.RuntimeOpenSourceInitializer_UnityRenderPipeline::OnBeginFrameRendering(UnityEngine.Rendering.ScriptableRenderContext,UnityEngine.Camera[])
+extern void UnityRenderPipeline_OnBeginFrameRendering_mFE0AAA7DA6B16B7ACA3AC9B5F84A6E87266BA491 ();
+static Il2CppMethodPointer s_methodPointers[47] = 
+{
+	BoundingBoxRenderer_OnRenderObject_m68673644D738E5BD11923B80B42A154C6C269BC6,
+	BoundingBoxRenderer__ctor_m4F81CCB945436A775EB635BE64E469FEA1C6C639,
+	DefaultInitializationErrorHandler_OnVuforiaInitializationError_mEBF42837CA97AF2CFA28D28A9A39988EC5413F7B,
+	DefaultInitializationErrorHandler_Awake_m4038C70C44A5DA1837B36861AA2B4305424FBB1B,
+	DefaultInitializationErrorHandler_Start_m7A087FA88C9DAA849F754A3365E86782DCCF81DD,
+	DefaultInitializationErrorHandler_OnGUI_m906C10E3D218D97B9EA7526E95F72A1E1FC04040,
+	DefaultInitializationErrorHandler_OnDestroy_m504A72DB220B746C42FF75BA42482D64E49FDE17,
+	DefaultInitializationErrorHandler_DrawWindowContent_mB87D116DA38655853BC96A9211D1989E7EF33262,
+	DefaultInitializationErrorHandler_SetErrorCode_mCECD875BCA20516C39AE387C06AE94F1E9CA7B51,
+	DefaultInitializationErrorHandler_SetErrorOccurred_m7B8CBC12E402A15CD961945D0FC5E788D926554F,
+	DefaultInitializationErrorHandler_getKeyInfo_m08AC1F25C54DB08BAF219BFF64570EB8385D8E1A,
+	DefaultInitializationErrorHandler_SetupGUIStyles_m1D91C7E31546279E161EFE09E6EC9EB59B9AE95C,
+	DefaultInitializationErrorHandler_CreateSinglePixelTexture_m314E1B3B003A6F0253FD1A13070B93BCE6415AD6,
+	DefaultInitializationErrorHandler__ctor_m9C0FB8A494158D7304A5A6D94D681DF55B0D42FA,
+	DefaultModelRecoEventHandler_Start_mE9E3D8D2B2AB37738B1C6F7473AD4356A565E25F,
+	DefaultModelRecoEventHandler_Update_mDC58C379360938ACEFA1DDC53B32CA06E64A2DA3,
+	DefaultModelRecoEventHandler_OnDestroy_m39E5011DE3ECC4BD4A79AE8830212BE01E556E65,
+	DefaultModelRecoEventHandler_OnInitialized_mFDD5794A2386BD764D0C646A87F925DDB2CD8E2A,
+	DefaultModelRecoEventHandler_OnInitError_mB9195DBFE488078F0ECA77D17D2A0B584F00FAD3,
+	DefaultModelRecoEventHandler_OnUpdateError_mC8D6FEF4CF523F938A8C0D9EF7FE065197EEE242,
+	DefaultModelRecoEventHandler_OnStateChanged_mA8324CFE9BBD107EC2ACB9A2857AD825EC40E389,
+	DefaultModelRecoEventHandler_OnNewSearchResult_mD52DF1B20F00770C87F72001D0AE58F9033E251D,
+	DefaultModelRecoEventHandler_FindExistingModelTarget_mBE361609CBEC751571D7A486C152F90B03A1ABCA,
+	DefaultModelRecoEventHandler_ShowErrorMessageInUI_m6CA52CF0093CC28BC4BCA765B4C701F10C476BEC,
+	DefaultModelRecoEventHandler_GetModelTargetWorldBounds_m9435246FE4CBCD9FB2E5B15FE84FF56565248105,
+	DefaultModelRecoEventHandler_IsModelTrackedInView_m484B3B06B82A9C624B57993066A8501F09756D5C,
+	DefaultModelRecoEventHandler_GetTargetFinder_mAA8E023461766F2C3066EA7F10AA5DBC1B02A64B,
+	DefaultModelRecoEventHandler_ResetModelReco_m4E8F81D21371F5A517129E68E03B26851DE10C5D,
+	DefaultModelRecoEventHandler__ctor_mF8A55D05AC2BBE488A59D7BB9C215DC2ADE68760,
+	DefaultTrackableEventHandler_Start_m5A732F3C7EDB5E01C7CD5BDE821FF1B6C9E907ED,
+	DefaultTrackableEventHandler_OnDestroy_m1E2C6C4E61424614E5CC0CACED2C0B8EAC50C208,
+	DefaultTrackableEventHandler_OnTrackableStateChanged_m037F7353D61AC3E1BFEB93B7E51672578E783427,
+	DefaultTrackableEventHandler_OnTrackingFound_mE63DDA2BD076BE6C6EE1235AD0F18AEBD6D199F6,
+	DefaultTrackableEventHandler_OnTrackingLost_m8C2BEAB679465AE131946222D0F2D8FD39BD8CC3,
+	DefaultTrackableEventHandler__ctor_m9DC3D237B7D42646DA70B26C5448A615595D1B67,
+	RuntimeOpenSourceInitializer_OnRuntimeMethodLoad_mBF0380D873784EBA1B5A42187D7F344ADA91E443,
+	RuntimeOpenSourceInitializer_InitializeFacade_m4E456DBA2604DD48341B172BE75E55AC76AFFBEE,
+	RuntimeOpenSourceInitializer__ctor_m865FD477A6A55C7FFDB9FBDF672E22BC9C3A92D8,
+	OpenSourceUnityCompiledFacade_get_UnityRenderPipeline_mF28E5C96C8071CD96C310B5E2FA5DBD8644BF4D9,
+	OpenSourceUnityCompiledFacade__ctor_mB773D09AA7A4167A5E92922DA08FE6827570DA7C,
+	UnityRenderPipeline_add_BeginFrameRendering_m9D259FD7AC5FC26A80C5DE8E25AE477714771252,
+	UnityRenderPipeline_remove_BeginFrameRendering_m41048F48C42906494CA19BFD3D54B0F49EC2A02D,
+	UnityRenderPipeline_add_BeginCameraRendering_mD4A5C6E21309929A0F5E9A5D6235998D2D309029,
+	UnityRenderPipeline_remove_BeginCameraRendering_m2589F202EE39580EA9D2E951C7E71D866EECBA17,
+	UnityRenderPipeline__ctor_mBCF1D018D5EA889499AC8B84AB95B314CC7275DB,
+	UnityRenderPipeline_OnBeginCameraRendering_m15CB7AC8363F2493DF182B36D04EACC08258FA71,
+	UnityRenderPipeline_OnBeginFrameRendering_mFE0AAA7DA6B16B7ACA3AC9B5F84A6E87266BA491,
+};
+static const int32_t s_InvokerIndices[47] = 
+{
+	13,
+	13,
+	9,
+	13,
+	13,
+	13,
+	13,
+	9,
+	9,
+	44,
+	14,
+	13,
+	1733,
+	13,
+	13,
+	13,
+	13,
+	4,
+	9,
+	9,
+	44,
+	4,
+	6,
+	4,
+	1956,
+	32,
+	14,
+	44,
+	13,
+	13,
+	13,
+	157,
+	13,
+	13,
+	13,
+	8,
+	8,
+	13,
+	14,
+	13,
+	4,
+	4,
+	4,
+	4,
+	13,
+	1250,
+	1250,
+};
+extern const Il2CppCodeGenModule g_VuforiaScriptsCodeGenModule;
+const Il2CppCodeGenModule g_VuforiaScriptsCodeGenModule = 
+{
+	"VuforiaScripts.dll",
+	47,
+	s_methodPointers,
+	s_InvokerIndices,
+	0,
+	NULL,
+	0,
+	NULL,
+	0,
+	NULL,
+	NULL,
+};
