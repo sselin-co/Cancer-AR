@@ -21,7 +21,7 @@ A repository for a Cancer Nodules Visualization App
 ** **Note:** You may need to install additional software to support either mobile platforms.
 
 
-![Unity Install](Installing_Unity.png)
+![Unity Install](README%20Pictures/Installing_Unity.png)
 
 6. Click "Install"
 
