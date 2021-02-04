@@ -13,4 +13,5 @@
 ### Tasks
 - Practice C#
 - Familization with Code
+- Added Get Set up Documentaion to README.md
 - Enabled pinch to scale, translating and rotating X, Y, Z without using buttons
