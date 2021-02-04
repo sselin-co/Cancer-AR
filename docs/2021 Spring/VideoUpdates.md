@@ -1,6 +1,6 @@
 # Progress
 
-## Week 2 - 
+## Week 2
 ### [Video](https://youtu.be/5mpuyq1P8Jc)
 - Demo running on Unity and iPad
 ### Tasks
