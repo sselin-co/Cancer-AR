@@ -1,5 +1,9 @@
-# cancAR - UBC Lung VR/AR Mobile Applicaiton 
-A repository for a Cancer Nodules Visualization App 
+# CancerAR - UBC Cancer VR/AR Mobile Applicaiton 
+A repository for a Cancer Nodules Visualization App. Currently supporting lungs and kidneys. 
+
+## Contributors 
+- [@brandongk](https://github.com/brandongk-ubco) 
+- [@danbugs](https://github.com/danbugs)
 
 
 ## Get Started
@@ -63,9 +67,9 @@ For Android, you will need **Android Studios** which  you can download from [the
 
 ### Visual Studio
 Some errors that you may come across while working on Visual Studio: 
-
-#### The type or namespace "UnityEngine" could not be found - Can not edit scripts
-
+```
+The type or namespace "UnityEngine" could not be found - Can not edit scripts
+```
 You can regenerate the Visual Studio project files by deleting the `.csproj` and `.sln` files from your Unity project folder. Open any script in your project through the Unity Editor and Unity will recreate the files. 
 
 You can also use `Assets - Open C# Project` through Unity's menu bar.
