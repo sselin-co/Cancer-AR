@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Python" name="Python">
+      <configuration sdkName="Python 3.7 (ml)" />
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/LIDC-IDRI" />
+      <excludeFolder url="file://$MODULE_DIR$/PyMesh" />
+      <excludeFolder url="file://$MODULE_DIR$/bbox_result" />
+      <excludeFolder url="file://$MODULE_DIR$/prep_result" />
+      <excludeFolder url="file://$MODULE_DIR$/rendered" />
+      <excludeFolder url="file://$MODULE_DIR$/venv" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.7 (ml)" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Python 3.7 (ml) interpreter library" level="application" />
+    <orderEntry type="library" name="R User Library" level="project" />
+    <orderEntry type="library" name="R Skeletons" level="application" />
+  </component>
+  <component name="TemplatesService">
+    <option name="TEMPLATE_FOLDERS">
+      <list>
+        <option value="$MODULE_DIR$/venv/lib/python3.7/site-packages/pandas/io/formats/templates" />
+      </list>
+    </option>
+  </component>
+</module>
