@@ -82,15 +82,15 @@ You can follow the steps below to build and export the project
      3. From the sub-menu, select "All" 
      4. In this section: 
           1. Ensure you have "Automically mange signing" ✅
-          2. Ensure you have a "Team" selected (you may need to sign in to your Apple ID (developer account) 
+          2. Ensure you have a "Team" selected (you may need to sign in to your Apple ID [developer account]) 
           3. Ensure you have a "Bundle Identifier", this may already be pre-populated with a value but make sure it follows this format: `com.[text].[text]`     
-          4. Ensure you have a "Signing Certificate" (you may need to sign in to your Apple ID (developer account)
+          4. Ensure you have a "Signing Certificate" (you may need to sign in to your Apple ID [developer account])
 
 ![xCode Settings](README%20Pictures/xCode_Settings.png)
 
 3. Once you have completed all the tasks above, connect an iOS device to your computer
-4. Press the ▶️ button on the top 
-5. Wait for build to compelte 
+4. Press the ▶️  button on the top 
+5. Wait for build to complete 
 6. The application should appear on your phone 
 7. If this is the first time you are deploying an application from you computer to your device, your iOS device will block the installization of the app due to privacy and security - Refer to Common Errors and Fixes below for a solution
 
