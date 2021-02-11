@@ -15,3 +15,12 @@
 - Familization with Code
 - Added Get Set up Documentaion to README.md
 - Enabled pinch to scale, translating and rotating X, Y, Z without using buttons
+
+## Week 4
+### [Report](https://github.com/Parsa-Rajabi/UBC-Lungs-VR-AR-App/blob/main/docs/2021%20Spring/COSC%20447%20-%203D%20Object%20Translation%20Report.pdf)
+- 3D Object Translation 
+### Tasks
+- Read Papers 
+- Created Report based on Papers 
+- Updated README with Build instructios for iOS
+- Fixed minor bugs with pinch to scale, translating and rotating X, Y, Z without using buttons
