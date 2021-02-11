@@ -17,7 +17,7 @@
 - Enabled pinch to scale, translating and rotating X, Y, Z without using buttons
 
 ## Week 4
-### [Report](https://github.com/Parsa-Rajabi/UBC-Lungs-VR-AR-App/blob/main/docs/2021%20Spring/COSC%20447%20-%203D%20Object%20Translation%20Report.pdf)
+### [Report](https://docs.google.com/spreadsheets/d/1oHvlnuQTlxqtbbcI85ABXfpTD0oF3JDJh1-jKyA32jA/edit?usp=sharing)
 - 3D Object Translation 
 ### Tasks
 - Read Papers 
