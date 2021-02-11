@@ -61,9 +61,58 @@ For Android, you will need **Android Studios** which  you can download from [the
 
 ***Note**: You may get a pop-up that says you need install some additional assets, follow the prompts and re-run the project by clicking on the play button.* 
 
+# Build Application 
+
+You can follow the steps below to build and export the project 
+
+1. Open Project
+2. From Unity's top menu, select File > Build Settings
+3. Under platform section, select the platform you wish to create the build for
+4. Once you have selected the platform, ensure the build settings are accurate on the right hand side
+5. Click "Build" or "Build And Run" 
 
 
-## Common Errors and Fixes
+## iOS
+1. Open project in xCode
+- If you selected "Build and Run", your xCode should automaically open up (may take awhile to open up for the first time). 
+- If you selected "Build", navigate to where you saved the build package and click on the `.xcodeproj` file to open the project in xCode.
+2. Once the project has loaded you have to update/fix a few things before being able to build the application:
+     1. Under "TARGETS" section on the left hand side, select "Unity-iPhone" 
+     2. From the upper menu, select "Signing & Capabilities" (beside General)
+     3. From the sub-menu, select "All" 
+     4. In this section: 
+          1. Ensure you have "Automically mange signing" ✅
+          2. Ensure you have a "Team" selected (you may need to sign in to your Apple ID (developer account) 
+          3. Ensure you have a "Bundle Identifier", this may already be pre-populated with a value but make sure it follows this format: `com.[text].[text]`     
+          4. Ensure you have a "Signing Certificate" (you may need to sign in to your Apple ID (developer account)
+
+![xCode Settings](README%20Pictures/xCode_Settings.png)
+
+3. Once you have completed all the tasks above, connect an iOS device to your computer
+4. Press the ▶️ button on the top 
+5. Wait for build to compelte 
+6. The application should appear on your phone 
+7. If this is the first time you are deploying an application from you computer to your device, your iOS device will block the installization of the app due to privacy and security - Refer to Common Errors and Fixes below for a solution
+
+
+# Common Errors and Fixes
+
+### xCode
+![Untrusted Developer](README%20Pictures/Untrusted_Dev.png)
+
+- Follow these steps to fix:
+     1. Go on your iOS device 
+     2. Open Settings > General
+     3. Profiles (you won’t see this until after the first profile is installed on an iOS device)
+     4. Choose the affected profile and trust it
+
+- An alternative to fix: 
+     1. Open Xcode app on your Mac
+     2. Navigate to Window > Devices 
+     3. Right click on your device > "Show Provisioning Profiles..." > and delete the profiles 
+     4. Delete the installed app on your device 
+     5. Now rebuild and install the app again 
+     
 
 ### Visual Studio
 Some errors that you may come across while working on Visual Studio: 
