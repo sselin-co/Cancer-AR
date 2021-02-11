@@ -113,6 +113,8 @@ You can follow the steps below to build and export the project
      4. Delete the installed app on your device 
      5. Now rebuild and install the app again 
      
+- In case neither of those options work, Apple may have updated iOS and the `Profiles & Device Management` section has moved. In that case, refer to their documentation to locate that section.
+     
 
 ### Visual Studio
 Some errors that you may come across while working on Visual Studio: 
