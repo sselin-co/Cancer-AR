@@ -98,6 +98,9 @@ You can follow the steps below to build and export the project
 # Common Errors and Fixes
 
 ### xCode
+
+#### Untrusted Developer 
+
 ![Untrusted Developer](README%20Pictures/Untrusted_Dev.png)
 
 - Follow these steps to fix:
@@ -114,10 +117,20 @@ You can follow the steps below to build and export the project
      5. Now rebuild and install the app again 
      
 - In case neither of those options work, Apple may have updated iOS and the `Profiles & Device Management` section has moved. In that case, refer to their documentation to locate that section.
-     
+  
+
+#### Invalid Code Signiture 
+
+![Invalid Code Sig](README%20Pictures/InvalidCodeSig.png)
+
+
+
+- The problem is that the developer is not trusted on the device. If you manually try to run the apps on the device, you will see an Untrusted Developer message.
+
+  To solve this issue on the device, go to `Settings > General > Device Management`, depending on the device type and the iOS version. There, trust the developer and allow the apps to be run.
 
 ### Visual Studio
-Some errors that you may come across while working on Visual Studio: 
+
 ```
 The type or namespace "UnityEngine" could not be found - Can not edit scripts
 ```
