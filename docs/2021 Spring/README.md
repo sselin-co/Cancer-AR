@@ -21,6 +21,28 @@
 - 3D Object Translation 
 ### Tasks
 - Read Papers 
+
 - Created Report based on Papers 
+
 - Updated README with Build instructios for iOS
+
 - Fixed minor bugs with pinch to scale, translating and rotating X, Y, Z without using buttons
+
+  
+
+## Week 5
+
+- Reading Break --
+
+## Week 6
+
+### [Video](https://youtu.be/4e2-PGKc3qg)
+
+- Demo of Touch Tap to Change Rotation Axis 
+
+### Tasks
+
+- Updated README Instructions + Common Issues 
+- Researched alternatives approaches for detecting user Tap / Selection
+- Attempted to implemented Tap / Selection of model detection
+- Implemnted feature to detect user tap and chagne axis based on number of taps 
