@@ -46,3 +46,12 @@
 - Researched alternatives approaches for detecting user Tap / Selection
 - Attempted to implemented Tap / Selection of model detection
 - Implemnted feature to detect user tap and chagne axis based on number of taps 
+
+### Summary 
+
+|        | Moving | Scaling | Rotating |
+| :----: | :----: | :-----: | :------: |
+| 1 Tap  |  Drag  |  Pinch  | X - Axis |
+| 2 Taps |   -    |    -    | Y - Axis |
+| 3 Taps |   -    |    -    | Z - Axis |
+
