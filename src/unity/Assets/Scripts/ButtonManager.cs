@@ -107,7 +107,6 @@ public class ButtonManager : MonoBehaviour
         switch (fingerTapCount)
         {
             case 1:
-                Debug.Log("1 Tap");
                 modelTranslateScript.enabled = true;
                 modelScaleScript.enabled = true;
                 modelRotateXScript.enabled = true;
@@ -116,7 +115,6 @@ public class ButtonManager : MonoBehaviour
                 axisStatus = "X Axis";
                 break;
             case 2:
-                Debug.Log("2 Taps");
                 modelTranslateScript.enabled = false;
                 modelScaleScript.enabled = false;
                 modelRotateXScript.enabled = false;
@@ -125,7 +123,6 @@ public class ButtonManager : MonoBehaviour
                 axisStatus = "Y Axis";
                 break;
             case 3:
-                Debug.Log("3 Taps");
                 modelTranslateScript.enabled = false;
                 modelScaleScript.enabled = false;
                 modelRotateXScript.enabled = false;
