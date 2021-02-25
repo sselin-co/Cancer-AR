@@ -69,7 +69,8 @@ You can follow the steps below to build and export the project
 2. From Unity's top menu, select File > Build Settings
 3. Under platform section, select the platform you wish to create the build for
 4. Once you have selected the platform, ensure the build settings are accurate on the right hand side
-5. Click "Build" or "Build And Run" 
+5. Click "Switch Platforms"
+6. Click "Build" or "Build And Run" 
 
 
 ## iOS
