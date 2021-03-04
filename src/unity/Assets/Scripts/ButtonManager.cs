@@ -3,51 +3,45 @@ using UnityEngine;
 
 public class ButtonManager : MonoBehaviour
 {
-    [SerializeField]
-    GameObject modeLbl;
-
+    // translating 
     Lean.Touch.LeanTranslate modelTranslateScript;
 
+    // scaling
     Lean.Touch.LeanScale modelScaleScript;
 
+    // rotation 
     Lean.Touch.LeanRotateCustomAxisX modelRotateXScript;
-
     Lean.Touch.LeanRotateCustomAxisY modelRotateYScript;
-
     Lean.Touch.LeanRotateCustomAxisZ modelRotateZScript;
 
+    // model outer shell + label
     GameObject shell;
-
-    [SerializeField]
-    GameObject shellLbl;
-
+    [SerializeField] GameObject shellLbl;
     BoxCollider shellColl;
 
+    // annotation panel, annotate texts + input 
     List<GameObject> texts = new List<GameObject>();
-
-    [SerializeField]
-    GameObject annotationPnl;
-
-    [SerializeField]
-    GameObject annotationInputText;
-
+    [SerializeField] GameObject annotationPnl;
+    [SerializeField] GameObject annotationInputText;
     private int textsCounter = 0;
 
-    [SerializeField]
-    GameObject nodulePnl;
+    // nodule panel
+    [SerializeField] GameObject nodulePnl;
 
-    [SerializeField]
-    GameObject lungs;
+    // label used for each model (kidney or lungs)
+    [SerializeField] GameObject modeLbl;
 
-    [SerializeField]
-    GameObject kidneys;
+    // models
+    [SerializeField] GameObject lungs;
+    [SerializeField] GameObject kidneys;
 
-    [SerializeField]
-    GameObject modelSelectPnl;
+    // initial screen mode selection variable 
+    [SerializeField] GameObject modelSelectPnl;
 
     // axis status based on number of taps
     string axisStatus = "";
-    
+
+    // displays kidneys when selected
     public void SelecKidneys()
     {
         lungs.SetActive(false);
@@ -55,6 +49,7 @@ public class ButtonManager : MonoBehaviour
         Setup();
     }
 
+    // displays lungs when selected
     public void SelectLungs()
     {
         lungs.SetActive(true);
@@ -62,6 +57,7 @@ public class ButtonManager : MonoBehaviour
         Setup();
     }
 
+    // functions is called on initial load
     private void Setup()
     {
         modelSelectPnl.SetActive(false);
@@ -77,11 +73,11 @@ public class ButtonManager : MonoBehaviour
             texts.Add(GameObject.FindWithTag("notes").transform.GetChild(i).gameObject);
             texts[i].SetActive(false);
         }
-        
+
         // detect finger tap         
         Lean.Touch.LeanTouch.OnFingerTap += HandleFingerTap;
-        
-        
+
+
         // initial state of the model
         modelTranslateScript.enabled = true;
         modelScaleScript.enabled = true;
@@ -89,22 +85,26 @@ public class ButtonManager : MonoBehaviour
         modelRotateYScript.enabled = false;
         modelRotateZScript.enabled = false;
         axisStatus = "X Axis";
-        
     }
-    
 
+
+    // function is called onDisable 
     void OnDisable()
     {
         Lean.Touch.LeanTouch.OnFingerTap -= HandleFingerTap;
     }
-    
+
+
+    // function to handle finger taps from user
     void HandleFingerTap(Lean.Touch.LeanFinger finger)
     {
         var fingerTapCount = finger.TapCount;
-        
 
+
+        // actions based on number of user finger taps
         switch (fingerTapCount)
         {
+            // x axis 
             case 1:
                 modelTranslateScript.enabled = true;
                 modelScaleScript.enabled = true;
@@ -113,6 +113,7 @@ public class ButtonManager : MonoBehaviour
                 modelRotateZScript.enabled = false;
                 axisStatus = "X Axis";
                 break;
+            // y axis 
             case 2:
                 modelTranslateScript.enabled = false;
                 modelScaleScript.enabled = false;
@@ -121,6 +122,7 @@ public class ButtonManager : MonoBehaviour
                 modelRotateZScript.enabled = false;
                 axisStatus = "Y Axis";
                 break;
+            // z axis
             case 3:
                 modelTranslateScript.enabled = false;
                 modelScaleScript.enabled = false;
@@ -133,14 +135,17 @@ public class ButtonManager : MonoBehaviour
                 axisStatus = "Tap Once to Reset";
                 break;
         }
+
         modeLbl.GetComponent<TMPro.TextMeshProUGUI>().text = axisStatus;
-        texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanTranslate>().enabled = false;
+        texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanTranslate>().enabled =
+            false;
         texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanScale>().enabled = false;
     }
 
+    // function is called to hide/show shell depending on the current state of shell
     public void Shell()
     {
-        if(shell.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().enabled)
+        if (shell.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().enabled)
         {
             shell.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().enabled = false;
             shellColl.enabled = false;
@@ -154,6 +159,7 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
+    // function is called when user starts annotating on screen
     public void Annotate()
     {
         modelTranslateScript.enabled = false;
@@ -163,9 +169,9 @@ public class ButtonManager : MonoBehaviour
         modelRotateZScript.enabled = false;
         texts[textsCounter].GetComponent<Lean.Touch.LeanTranslate>().enabled = true;
         texts[textsCounter].GetComponent<Lean.Touch.LeanScale>().enabled = true;
-        // modeLbl.GetComponent<TMPro.TextMeshProUGUI>().text = "Current Mode: Annotating";
         annotationPnl.SetActive(true);
 
+        // 5 annotations is the max 
         if (textsCounter < 5)
         {
             texts[textsCounter].SetActive(true);
@@ -177,12 +183,15 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
+    // function is called when user is done annotating 
     public void DoneAnnotating()
     {
-        texts[textsCounter-1].GetComponent<TextMesh>().text = annotationInputText.GetComponent<TMPro.TMP_InputField>().text;
+        texts[textsCounter - 1].GetComponent<TextMesh>().text =
+            annotationInputText.GetComponent<TMPro.TMP_InputField>().text;
         annotationPnl.SetActive(false);
     }
 
+    // function is called after user preses "OK" after viewing the cancer nodule
     public void DoneWithNodule()
     {
         nodulePnl.SetActive(false);
