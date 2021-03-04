@@ -90,7 +90,6 @@ public class ButtonManager : MonoBehaviour
         modelRotateZScript.enabled = false;
         axisStatus = "X Axis";
         
-
     }
     
 
@@ -135,65 +134,8 @@ public class ButtonManager : MonoBehaviour
                 break;
         }
         modeLbl.GetComponent<TMPro.TextMeshProUGUI>().text = axisStatus;
-    }
-    public void EnableTranslation()
-    {
-        // modelTranslateScript.enabled = true;
-        // modelScaleScript.enabled = false;
-        // modelRotateXScript.enabled = false;
-        // modelRotateYScript.enabled = false;
-        // modelRotateZScript.enabled = false;
-        // texts[textsCounter == 0 ? textsCounter : textsCounter -1].GetComponent<Lean.Touch.LeanTranslate>().enabled = false;
-        // texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanScale>().enabled = false;
-        // modeLbl.GetComponent<TMPro.TextMeshProUGUI>().text = "Current Mode: Translate";
-    }
-
-    public void EnableScaling()
-    {
-        // modelTranslateScript.enabled = false;
-        // modelScaleScript.enabled = true;
-        // modelRotateXScript.enabled = false;
-        // modelRotateYScript.enabled = false;
-        // modelRotateZScript.enabled = false;
-        // texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanTranslate>().enabled = false;
-        // texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanScale>().enabled = false;
-        // modeLbl.GetComponent<TMPro.TextMeshProUGUI>().text = "Current Mode: Scale";
-    }
-
-    public void EnableXRotation()
-    {
-    //     modelTranslateScript.enabled = false;
-    //     modelScaleScript.enabled = false;
-    //     modelRotateXScript.enabled = true;
-    //     modelRotateYScript.enabled = false;
-    //     modelRotateZScript.enabled = false;
-    //     texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanTranslate>().enabled = false;
-    //     texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanScale>().enabled = false;
-    //     modeLbl.GetComponent<TMPro.TextMeshProUGUI>().text = "Current Mode: Rotate X";
-    }
-
-    public void EnableYRotation()
-    {
-        // modelTranslateScript.enabled = false;
-        // modelScaleScript.enabled = false;
-        // modelRotateXScript.enabled = false;
-        // modelRotateYScript.enabled = true;
-        // modelRotateZScript.enabled = false;
-        // texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanTranslate>().enabled = false;
-        // texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanScale>().enabled = false;
-        // modeLbl.GetComponent<TMPro.TextMeshProUGUI>().text = "Current Mode: Rotate Y";
-    }
-
-    public void EnableZRotation()
-    {
-        // modelTranslateScript.enabled = false;
-        // modelScaleScript.enabled = false;
-        // modelRotateXScript.enabled = false;
-        // modelRotateYScript.enabled = false;
-        // modelRotateZScript.enabled = true;
-        // texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanTranslate>().enabled = false;
-        // texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanScale>().enabled = false;
-        // modeLbl.GetComponent<TMPro.TextMeshProUGUI>().text = "Current Mode: Rotate Z";
+        texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanTranslate>().enabled = false;
+        texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanScale>().enabled = false;
     }
 
     public void Shell()
