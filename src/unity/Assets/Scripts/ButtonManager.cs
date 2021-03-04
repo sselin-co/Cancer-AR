@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
@@ -43,6 +44,10 @@ public class ButtonManager : MonoBehaviour
 
     // axis status based on number of taps
     string axisStatus = "";
+    [SerializeField] GameObject modeImage;
+    public Sprite xImage; 
+    public Sprite yImage;
+    public Sprite zImage;
 
     // displays kidneys when selected
     public void SelecKidneys()
@@ -116,7 +121,7 @@ public class ButtonManager : MonoBehaviour
                 modelRotateXScript.enabled = true;
                 modelRotateYScript.enabled = false;
                 modelRotateZScript.enabled = false;
-                axisStatus = "X Axis";
+                modeImage.GetComponent<Image>().sprite = xImage;
                 break;
             // y axis 
             case 2:
@@ -125,7 +130,7 @@ public class ButtonManager : MonoBehaviour
                 modelRotateXScript.enabled = false;
                 modelRotateYScript.enabled = true;
                 modelRotateZScript.enabled = false;
-                axisStatus = "Y Axis";
+                modeImage.GetComponent<Image>().sprite = yImage;
                 break;
             // z axis
             case 3:
@@ -134,7 +139,7 @@ public class ButtonManager : MonoBehaviour
                 modelRotateXScript.enabled = false;
                 modelRotateYScript.enabled = false;
                 modelRotateZScript.enabled = true;
-                axisStatus = "Z Axis";
+                modeImage.GetComponent<Image>().sprite = zImage;
                 break;
             default:
                 axisStatus = "Tap Once to Reset";
