@@ -130,6 +130,24 @@ You can follow the steps below to build and export the project
 
   To solve this issue on the device, go to `Settings > General > Device Management`, depending on the device type and the iOS version. There, trust the developer and allow the apps to be run.
 
+#### Errors were encountered while preparing your device for development `<none>`
+
+![Invalid Code Sig](README%20Pictures/none_error.png)
+
+Perform the following steps in this order:
+
+1. Delete the app from the device
+2. Clean the Build Folder with: ⌘ + shift + K
+3. Disconnect device
+4. Restart device 
+
+--- at this point you should try `re-building and re-installing`. If you're still running into the issue continue with the following steps:
+
+5. Unpair device (from ⌘ + shift + 2 window)
+6. Restart Computer 
+7. Re-pair device 
+8. `Re-build and re-install`
+
 ### Visual Studio
 
 ```
