@@ -25,7 +25,10 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] GameObject annotationInputText;
     private int textsCounter = 0;
 
-    // nodule panel
+    [SerializeField] GameObject helpBtn;
+    [SerializeField] GameObject helpPnl;
+    
+    // panel displayed after cancer nodule is selected
     [SerializeField] GameObject nodulePnl;
 
     // label used for each model (kidney or lungs)
@@ -60,6 +63,7 @@ public class ButtonManager : MonoBehaviour
     // functions is called on initial load
     private void Setup()
     {
+        // helpPanel.SetActive(true);
         modelSelectPnl.SetActive(false);
         modelTranslateScript = GameObject.FindWithTag("model").GetComponent<Lean.Touch.LeanTranslate>();
         modelScaleScript = GameObject.FindWithTag("model").GetComponent<Lean.Touch.LeanScale>();
@@ -74,6 +78,7 @@ public class ButtonManager : MonoBehaviour
             texts[i].SetActive(false);
         }
 
+        helpBtn.SetActive(true);
         // detect finger tap         
         Lean.Touch.LeanTouch.OnFingerTap += HandleFingerTap;
 
@@ -196,5 +201,12 @@ public class ButtonManager : MonoBehaviour
     public void DoneWithNodule()
     {
         nodulePnl.SetActive(false);
+    }
+
+    public void DisplayHelp()
+    {
+        bool isHelpActive = helpPnl.activeSelf;
+        helpPnl.SetActive(!isHelpActive);
+        helpBtn.SetActive(isHelpActive);
     }
 }
