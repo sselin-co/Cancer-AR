@@ -55,3 +55,18 @@
 | 2 Taps |   -    |    -    | Y - Axis |
 | 3 Taps |   -    |    -    | Z - Axis |
 
+## Week 7
+
+### [Video](https://youtu.be/V7BV4tLKR8U)
+
+- Demo of New "Help" screen + new axis graphics 
+
+### Tasks
+
+- Refactored and added comments to existing code + optimized build time
+- Created new "Help" page with hand gestures 
+- Added "Help" page after model is selected
+- Added Help button functionality to display "Help" page and hide page after pressing "OK"
+- Replaced Axis status label with custom graphic X / Y / Z
+- Researched Networking tools for multiplayer such as [Photon](https://www.photonengine.com/en/pun), [Mirror](https://mirror-networking.gitbook.io/docs/), [Magic Leap](https://www.pubnub.com/blog/multiplayer-augmented-reality-game-magic-leap-unity/?devrel_gh=Cube-Fight), Unity's default [Network Manger](https://medium.com/wolox/augmented-shared-reality-in-unity-b7f88ca98ec1)
+- Attempted to implement Unity's default Network Manager + Photon with *some* success
