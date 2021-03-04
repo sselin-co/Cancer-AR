@@ -3028,9 +3028,9 @@ MonoBehaviour:
   kidneys: {fileID: 385477978}
   modelSelectPnl: {fileID: 381041442}
   modeImage: {fileID: 1797503853}
-  xImage: {fileID: 21300000, guid: 98ec18f8830304a5f9fe61522e064e84, type: 3}
-  yImage: {fileID: 21300000, guid: e99c911db3126406a8bce22dfd263dca, type: 3}
-  zImage: {fileID: 21300000, guid: 044e85a2bb09840e9a0c72f7d4d53b47, type: 3}
+  xImage: {fileID: 21300000, guid: 64549ae9da6dc4d33ae5e5a4cc54ff44, type: 3}
+  yImage: {fileID: 21300000, guid: 89abe8097369e433797c6257646ebf02, type: 3}
+  zImage: {fileID: 21300000, guid: bd644dbf28b714b75a6217c4dbf67a7c, type: 3}
 --- !u!4 &1166516375
 Transform:
   m_ObjectHideFlags: 0
