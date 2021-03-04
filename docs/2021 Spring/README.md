@@ -65,6 +65,7 @@
 
 - Refactored and added comments to existing code + optimized build time
 - Fixed bug with background height not displaying full screen
+- Updated README with xCode issue
 - Created new "Help" page with hand gestures 
 - Added "Help" page after model is selected
 - Added Help button functionality to display "Help" page and hide page after pressing "OK"
