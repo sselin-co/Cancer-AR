@@ -68,7 +68,7 @@ public class ButtonManager : MonoBehaviour
     // functions is called on initial load
     private void Setup()
     {
-        // helpPanel.SetActive(true);
+        
         modelSelectPnl.SetActive(false);
         modelTranslateScript = GameObject.FindWithTag("model").GetComponent<Lean.Touch.LeanTranslate>();
         modelScaleScript = GameObject.FindWithTag("model").GetComponent<Lean.Touch.LeanScale>();
@@ -82,8 +82,8 @@ public class ButtonManager : MonoBehaviour
             texts.Add(GameObject.FindWithTag("notes").transform.GetChild(i).gameObject);
             texts[i].SetActive(false);
         }
-
-        helpBtn.SetActive(true);
+        
+        helpPnl.SetActive(true);
         // detect finger tap         
         Lean.Touch.LeanTouch.OnFingerTap += HandleFingerTap;
 
