@@ -135,7 +135,8 @@ public class ButtonManager : MonoBehaviour
                 axisStatus = "Tap Once to Reset";
                 break;
         }
-
+        
+        // TODO: Look into making this "less" expensive and refactoring it 
         modeLbl.GetComponent<TMPro.TextMeshProUGUI>().text = axisStatus;
         texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanTranslate>().enabled =
             false;
