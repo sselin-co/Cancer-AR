@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
+
 
 public class ButtonManager : MonoBehaviour
 {
@@ -54,6 +56,12 @@ public class ButtonManager : MonoBehaviour
     {
         lungs.SetActive(false);
         kidneys.SetActive(true);
+        if (PhotonNetwork.IsConnected)
+        {
+            Debug.Log("Instantiating Kidney");
+            kidneys = PhotonNetwork.Instantiate("models/model2", kidneys.transform.position, kidneys.transform.rotation,
+                0);
+        }
         Setup();
     }
 
@@ -62,6 +70,12 @@ public class ButtonManager : MonoBehaviour
     {
         lungs.SetActive(true);
         kidneys.SetActive(false);
+        if (PhotonNetwork.IsConnected)
+        {
+            Debug.Log("Instantiating Lung");
+            lungs = PhotonNetwork.Instantiate("models/model", lungs.transform.position, lungs.transform.rotation, 0);
+        }
+        
         Setup();
     }
 
