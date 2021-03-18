@@ -68,7 +68,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        connectionStatus.text = "Room: " + PhotonNetwork.CurrentRoom.Name + " # of Players: " + PhotonNetwork.CurrentRoom.PlayerCount;
+        connectionStatus.text = "Room: " + PhotonNetwork.CurrentRoom.Name + " \nPlayer #: " + PhotonNetwork.CurrentRoom.PlayerCount;
         connectionStatus.color = Color.cyan;
         Debug.Log("Joined Room successfully " + PhotonNetwork.CurrentRoom.Name);    
     }
