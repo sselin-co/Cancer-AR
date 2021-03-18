@@ -5,7 +5,6 @@ using Photon.Pun;
 
 public class OwnershipControl : MonoBehaviourPun
 {
-    [SerializeField] GameObject helpPnl;
 
     void Start()
     {
@@ -14,10 +13,6 @@ public class OwnershipControl : MonoBehaviourPun
 
     void HandleFingerTap(Lean.Touch.LeanFinger finger)
     {
-        bool isHelpPanelActive = helpPnl.activeSelf;
-        if (!isHelpPanelActive)
-        {
-            photonView.RequestOwnership();
-        }
+        photonView.RequestOwnership();
     }
 }
