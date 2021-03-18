@@ -45,7 +45,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         connectionStatus.color = Color.green;
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 4;
-        PhotonNetwork.JoinOrCreateRoom("Test", roomOptions, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom("Demo", roomOptions, TypedLobby.Default);
         Debug.Log("Connected to Photon");
 
         // check to make sure room name is not empty
@@ -61,14 +61,14 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     
     public override void OnCreatedRoom()
     {
-        connectionStatus.text = "Room Created";
+        connectionStatus.text = "Created Room: " + PhotonNetwork.CurrentRoom.Name;
         connectionStatus.color = Color.cyan;
         Debug.Log("Room created successfully " + PhotonNetwork.CurrentRoom.Name);
     }
 
     public override void OnJoinedRoom()
     {
-        connectionStatus.text = "Joined Room";
+        connectionStatus.text = "Room :" + PhotonNetwork.CurrentRoom.Name + " # of Players: " + PhotonNetwork.CurrentRoom.PlayerCount;
         connectionStatus.color = Color.cyan;
         Debug.Log("Joined Room successfully " + PhotonNetwork.CurrentRoom.Name);    
     }
