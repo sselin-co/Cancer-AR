@@ -72,3 +72,17 @@
 - Replaced Axis status label with custom graphic X / Y / Z
 - Researched Networking tools for multiplayer such as [Photon](https://www.photonengine.com/en/pun), [Mirror](https://mirror-networking.gitbook.io/docs/), [Magic Leap](https://www.pubnub.com/blog/multiplayer-augmented-reality-game-magic-leap-unity/?devrel_gh=Cube-Fight), Unity's default [Network Manger](https://medium.com/wolox/augmented-shared-reality-in-unity-b7f88ca98ec1)
 - Attempted to implement Unity's default Network Manager + Photon with *some* success
+
+## Week 8
+
+### [Video](https://youtu.be/6KwZUTurl-k)
+
+- Demo of New Multiplayer 
+
+### Tasks
+
+- Implemented Multiplayer feature using Photon / PUN 
+- Investigated [Pricing for Photon](https://www.photonengine.com/en-US/PUN/Pricing) 
+- Attempted to fix GPU issue on iOS builds 
+- Updated X / Y / Z Colours, removed white background 
+- Updated Help page -- renamed "Traslate" to "Move"
