@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 2926586530515411066}
   - component: {fileID: 594502248122940109}
   - component: {fileID: 8206926622805410642}
-  - component: {fileID: 7126737571927071430}
+  - component: {fileID: -886800311637451231}
   m_Layer: 0
   m_Name: model
   m_TagString: model
@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 1
   m_UseLocal: 1
---- !u!114 &7126737571927071430
+--- !u!114 &-886800311637451231
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
