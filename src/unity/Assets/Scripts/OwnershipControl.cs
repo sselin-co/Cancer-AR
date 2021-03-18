@@ -9,12 +9,16 @@ public class OwnershipControl : MonoBehaviourPun
 
     public void OnMouseDown()
     {
-        photonView.RequestOwnership();
     }
-    
+
     void Start()
     {
-        // Debug.Log("Test");
+        Lean.Touch.LeanTouch.OnFingerTap += HandleFingerTap;
+    }
+
+    void HandleFingerTap(Lean.Touch.LeanFinger finger)
+    {
+        photonView.RequestOwnership();
     }
 
     // Update is called once per frame
