@@ -77,7 +77,7 @@
 
 ### [Video](https://youtu.be/6KwZUTurl-k)
 
-- Demo of New Multiplayer 
+- Demo of New Multiplayer (Computer / Computer)
 
 ### Tasks
 
@@ -86,3 +86,18 @@
 - Attempted to fix GPU issue on iOS builds 
 - Updated X / Y / Z Colours, removed white background 
 - Updated Help page -- renamed "Traslate" to "Move"
+
+## Week 9
+
+### [Video](https://youtu.be/YjlPPzpWlyQ)
+
+- Demo of Multiplayer (Computer / Mobile)
+
+### Tasks
+
+- Investigated crashing bug / GPU issue on iOS builds 
+- Investigated connecting to Canadian Photon Servers (previously using USA servers)
+- Re-implemented multiplayer feature 
+- Updated Launch Screen
+- Added Connection Status for User 
+- Investigated bi-directional access to models (work in progress)
