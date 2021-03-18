@@ -5,11 +5,7 @@ using Photon.Pun;
 
 public class OwnershipControl : MonoBehaviourPun
 {
-    // Start is called before the first frame update
-
-    public void OnMouseDown()
-    {
-    }
+    [SerializeField] GameObject helpPnl;
 
     void Start()
     {
@@ -18,12 +14,10 @@ public class OwnershipControl : MonoBehaviourPun
 
     void HandleFingerTap(Lean.Touch.LeanFinger finger)
     {
-        photonView.RequestOwnership();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // Debug.Log("Once per frame");
+        bool isHelpPanelActive = helpPnl.activeSelf;
+        if (!isHelpPanelActive)
+        {
+            photonView.RequestOwnership();
+        }
     }
 }
