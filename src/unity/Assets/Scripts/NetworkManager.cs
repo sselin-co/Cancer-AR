@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,10 +9,12 @@ using Photon.Realtime;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
-    
     public Text connectionStatus;
+    [SerializeField] GameObject RoomNameInput;
+    public String RoomName;
 
-    
+    [SerializeField] GameObject CreateRoomPnl;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -20,16 +23,30 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
         Debug.Log("Connecting to Server...");
     }
-    
+
     public override void OnConnectedToMaster() //Callback function for when the first connection is established successfully.
     {
-        connectionStatus.text = "Connected to " + PhotonNetwork.CloudRegion;
-        connectionStatus.color = Color.yellow;
+        if (PhotonNetwork.CloudRegion.Equals("cae/*"))
+        {
+            connectionStatus.text = "Connected to Photon Server: Canada (East)";    
+        }
+        else
+        {
+            connectionStatus.text = "Connected to Photon Server: " + PhotonNetwork.CloudRegion;
+        }
+        
+        connectionStatus.color = Color.green;
         Debug.Log("Cloud Region is " + PhotonNetwork.CloudRegion);
-        onClick_CreateRoom();
+        // onClick_CreateRoom();
     }
-    
-    
+
+    private void Update()
+    {
+        RoomName = RoomNameInput.GetComponent<TMPro.TMP_InputField>().text;
+        // Debug.Log("A- RoomName is " + RoomNameInput.GetComponent<TMPro.TMP_InputField>().text);
+        Debug.Log("RoomName is " + RoomName);
+    }
+
     public void onClick_CreateRoom()
     {
         Debug.Log("onClick_CreateRoom");
@@ -41,24 +58,27 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             Debug.Log("Not connected");
             return;
         }
-        connectionStatus.text = "Connected to Photon!";
-        connectionStatus.color = Color.green;
+
+        // connectionStatus.text = "Connected to Photon!";
+        // connectionStatus.color = Color.green;
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 4;
-        PhotonNetwork.JoinOrCreateRoom("Demo", roomOptions, TypedLobby.Default);
+        // PhotonNetwork.JoinOrCreateRoom("Demo", roomOptions, TypedLobby.Default);
         Debug.Log("Connected to Photon");
 
         // check to make sure room name is not empty
-        // if (roomName.text.Length > 0)
-        // {
-        //     
-        // }
-        // else
-        // {
-        //     Debug.Log("Enter a room name first");
-        // }
+        if (RoomName.Length > 0)
+        {
+            Debug.Log("Yay!");
+            PhotonNetwork.JoinOrCreateRoom(RoomName, roomOptions, TypedLobby.Default);
+            CreateRoomPnl.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Enter a room name first");
+        }
     }
-    
+
     public override void OnCreatedRoom()
     {
         connectionStatus.text = "Created Room: " + PhotonNetwork.CurrentRoom.Name;
@@ -68,12 +88,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        connectionStatus.text = "Room: " + PhotonNetwork.CurrentRoom.Name + " \nPlayer #: " + PhotonNetwork.CurrentRoom.PlayerCount;
+        connectionStatus.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name + " \nPlayer #: " + PhotonNetwork.CurrentRoom.PlayerCount;
         connectionStatus.color = Color.cyan;
-        Debug.Log("Joined Room successfully " + PhotonNetwork.CurrentRoom.Name);    
+        Debug.Log("Joined Room successfully " + PhotonNetwork.CurrentRoom.Name);
     }
-    
-    
+
+
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
         connectionStatus.text = "Failed to Join Room ";
@@ -87,7 +107,5 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         connectionStatus.text = "Failed to Create Room";
         connectionStatus.color = Color.red;
         Debug.Log("Failed to create room... trying again");
-        
     }
-    
 }
