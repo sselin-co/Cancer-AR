@@ -1,20 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Photon.Pun;
 
 public class OwnershipControl : MonoBehaviourPun
 {
-
-    void Start()
+    private void OnMouseDown()
     {
-        Lean.Touch.LeanTouch.OnFingerTap += HandleFingerTap;
-        Debug.Log("Tap Detected in Ownership Script");
+        Debug.Log("Changing Ownership from Mouse Input");
+        base.photonView.RequestOwnership();
     }
 
-    void HandleFingerTap(Lean.Touch.LeanFinger finger)
+    private void Update()
     {
-        Debug.Log("Changing Ownership");
-        photonView.RequestOwnership();
+        if (Input.touchCount > 0)
+        {
+            Debug.Log("Touch Detected to Change Ownership");
+            base.photonView.RequestOwnership();
+        }
     }
 }
