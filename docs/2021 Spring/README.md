@@ -114,5 +114,6 @@
   - [8th Wall](https://www.8thwall.com/)
   - [Apple AR Kit](https://developer.apple.com/augmented-reality/)
   - [Andriod ARCore](https://developers.google.com/ar/develop/java/quickstart)
-- Implemented bi-directional access to models (work in progress)
-- Built + Published iOS + Andriod Builds from Week 9 (sent via email)
+- Implemented bi-directional access to models 
+- Implemented feature for 2+ users to join rooms
+- Built + Published iOS & Andriod APKs from Week 9 (sent via email)
