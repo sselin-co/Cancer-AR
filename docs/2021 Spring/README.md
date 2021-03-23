@@ -101,3 +101,18 @@
 - Updated Launch Screen
 - Added Connection Status for User 
 - Investigated bi-directional access to models (work in progress)
+
+## Week 10
+
+### [Video](https://google.ca)
+
+- Demo of Multiplayer with Bi-directional access
+
+### Tasks
+
+- Investigated solutions for removing platform for object detection
+  - [8th Wall](https://www.8thwall.com/)
+  - [Apple AR Kit](https://developer.apple.com/augmented-reality/)
+  - [Andriod ARCore](https://developers.google.com/ar/develop/java/quickstart)
+- Implemented bi-directional access to models (work in progress)
+- Built + Published iOS + Andriod Builds from Week 9 (sent via email)
