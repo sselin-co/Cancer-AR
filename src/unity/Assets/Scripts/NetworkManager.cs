@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
@@ -37,14 +35,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         
         connectionStatus.color = Color.green;
         Debug.Log("Cloud Region is " + PhotonNetwork.CloudRegion);
-        // onClick_CreateRoom();
     }
 
     private void Update()
     {
         RoomName = RoomNameInput.GetComponent<TMPro.TMP_InputField>().text;
-        // Debug.Log("A- RoomName is " + RoomNameInput.GetComponent<TMPro.TMP_InputField>().text);
-        Debug.Log("RoomName is " + RoomName);
+
     }
 
     public void onClick_CreateRoom()
@@ -58,18 +54,14 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             Debug.Log("Not connected");
             return;
         }
-
-        // connectionStatus.text = "Connected to Photon!";
-        // connectionStatus.color = Color.green;
+        
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 4;
-        // PhotonNetwork.JoinOrCreateRoom("Demo", roomOptions, TypedLobby.Default);
         Debug.Log("Connected to Photon");
 
         // check to make sure room name is not empty
         if (RoomName.Length > 0)
         {
-            Debug.Log("Yay!");
             PhotonNetwork.JoinOrCreateRoom(RoomName, roomOptions, TypedLobby.Default);
             CreateRoomPnl.SetActive(false);
         }
