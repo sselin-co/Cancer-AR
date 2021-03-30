@@ -30,7 +30,7 @@ public class ButtonManager : MonoBehaviour
 
     [SerializeField] GameObject helpBtn;
     [SerializeField] GameObject helpPnl;
-    
+
     // panel displayed after cancer nodule is selected
     [SerializeField] GameObject nodulePnl;
 
@@ -47,7 +47,7 @@ public class ButtonManager : MonoBehaviour
     // axis status based on number of taps
     string axisStatus = "";
     [SerializeField] GameObject modeImage;
-    public Sprite xImage; 
+    public Sprite xImage;
     public Sprite yImage;
     public Sprite zImage;
 
@@ -58,10 +58,10 @@ public class ButtonManager : MonoBehaviour
         kidneys.SetActive(true);
         if (PhotonNetwork.IsConnected)
         {
-            Debug.Log("Instantiating Kidney");
             kidneys = PhotonNetwork.Instantiate("models/model2", kidneys.transform.position, kidneys.transform.rotation,
                 0);
         }
+
         Setup();
     }
 
@@ -72,17 +72,15 @@ public class ButtonManager : MonoBehaviour
         kidneys.SetActive(false);
         if (PhotonNetwork.IsConnected)
         {
-            Debug.Log("Instantiating Lung");
             lungs = PhotonNetwork.Instantiate("models/model", lungs.transform.position, lungs.transform.rotation, 0);
         }
-        
+
         Setup();
     }
 
     // functions is called on initial load
     private void Setup()
     {
-        
         modelSelectPnl.SetActive(false);
         modelTranslateScript = GameObject.FindWithTag("model").GetComponent<Lean.Touch.LeanTranslate>();
         modelScaleScript = GameObject.FindWithTag("model").GetComponent<Lean.Touch.LeanScale>();
@@ -96,7 +94,7 @@ public class ButtonManager : MonoBehaviour
             texts.Add(GameObject.FindWithTag("notes").transform.GetChild(i).gameObject);
             texts[i].SetActive(false);
         }
-        
+
         helpPnl.SetActive(true);
         // detect finger tap         
         Lean.Touch.LeanTouch.OnFingerTap += HandleFingerTap;
@@ -124,42 +122,53 @@ public class ButtonManager : MonoBehaviour
     {
         var fingerTapCount = finger.TapCount;
 
-
-        // actions based on number of user finger taps
-        switch (fingerTapCount)
+        // only allow scaling, translating and rotating if annotate is inactive
+        if (!Annotate.isAnnotateActive)
         {
-            // x axis 
-            case 1:
-                modelTranslateScript.enabled = true;
-                modelScaleScript.enabled = true;
-                modelRotateXScript.enabled = true;
-                modelRotateYScript.enabled = false;
-                modelRotateZScript.enabled = false;
-                modeImage.GetComponent<Image>().sprite = xImage;
-                break;
-            // y axis 
-            case 2:
-                modelTranslateScript.enabled = false;
-                modelScaleScript.enabled = false;
-                modelRotateXScript.enabled = false;
-                modelRotateYScript.enabled = true;
-                modelRotateZScript.enabled = false;
-                modeImage.GetComponent<Image>().sprite = yImage;
-                break;
-            // z axis
-            case 3:
-                modelTranslateScript.enabled = false;
-                modelScaleScript.enabled = false;
-                modelRotateXScript.enabled = false;
-                modelRotateYScript.enabled = false;
-                modelRotateZScript.enabled = true;
-                modeImage.GetComponent<Image>().sprite = zImage;
-                break;
-            default:
-                axisStatus = "Tap Once to Reset";
-                break;
+            // actions based on number of user finger taps
+            switch (fingerTapCount)
+            {
+                // x axis 
+                case 1:
+                    modelTranslateScript.enabled = true;
+                    modelScaleScript.enabled = true;
+                    modelRotateXScript.enabled = true;
+                    modelRotateYScript.enabled = false;
+                    modelRotateZScript.enabled = false;
+                    modeImage.GetComponent<Image>().sprite = xImage;
+                    break;
+                // y axis 
+                case 2:
+                    modelTranslateScript.enabled = false;
+                    modelScaleScript.enabled = false;
+                    modelRotateXScript.enabled = false;
+                    modelRotateYScript.enabled = true;
+                    modelRotateZScript.enabled = false;
+                    modeImage.GetComponent<Image>().sprite = yImage;
+                    break;
+                // z axis
+                case 3:
+                    modelTranslateScript.enabled = false;
+                    modelScaleScript.enabled = false;
+                    modelRotateXScript.enabled = false;
+                    modelRotateYScript.enabled = false;
+                    modelRotateZScript.enabled = true;
+                    modeImage.GetComponent<Image>().sprite = zImage;
+                    break;
+            }
         }
-        
+        // disable all model attributes when annotating is active
+        else
+        {
+            modelTranslateScript.enabled = false;
+            modelScaleScript.enabled = false;
+            modelRotateXScript.enabled = false;
+            modelRotateYScript.enabled = false;
+            modelRotateZScript.enabled = false;
+            // todo: replace picture with annotate image
+            modeImage.GetComponent<Image>().sprite = xImage;
+        }
+
         // TODO: Look into making this "less" expensive and refactoring it 
         modeLbl.GetComponent<TMPro.TextMeshProUGUI>().text = axisStatus;
         texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanTranslate>().enabled =
@@ -183,39 +192,6 @@ public class ButtonManager : MonoBehaviour
             shellLbl.GetComponent<TMPro.TextMeshProUGUI>().text = "Hide shell";
         }
     }
-
-    // function is called when user starts annotating on screen
-    public void Annotate()
-    {
-        modelTranslateScript.enabled = false;
-        modelScaleScript.enabled = false;
-        modelRotateXScript.enabled = false;
-        modelRotateYScript.enabled = false;
-        modelRotateZScript.enabled = false;
-        texts[textsCounter].GetComponent<Lean.Touch.LeanTranslate>().enabled = true;
-        texts[textsCounter].GetComponent<Lean.Touch.LeanScale>().enabled = true;
-        annotationPnl.SetActive(true);
-
-        // 5 annotations is the max 
-        if (textsCounter < 5)
-        {
-            texts[textsCounter].SetActive(true);
-            textsCounter++;
-        }
-        else
-        {
-            Debug.Log("Too many annotations!");
-        }
-    }
-
-    // function is called when user is done annotating 
-    public void DoneAnnotating()
-    {
-        texts[textsCounter - 1].GetComponent<TextMesh>().text =
-            annotationInputText.GetComponent<TMPro.TMP_InputField>().text;
-        annotationPnl.SetActive(false);
-    }
-
     // function is called after user preses "OK" after viewing the cancer nodule
     public void DoneWithNodule()
     {
