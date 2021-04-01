@@ -151,6 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trailPrefab: {fileID: 307182202639036540, guid: 69a272d2b9ee74dfe970fe9372fa3a55,
     type: 3}
+  annotationBtnLabel: {fileID: 2099763466}
 --- !u!4 &5013933
 Transform:
   m_ObjectHideFlags: 0
@@ -4794,6 +4795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trailPrefab: {fileID: 307182202639036540, guid: 69a272d2b9ee74dfe970fe9372fa3a55,
     type: 3}
+  annotationBtnLabel: {fileID: 2099763466}
 --- !u!1 &1780904034
 GameObject:
   m_ObjectHideFlags: 0
@@ -6520,7 +6522,7 @@ GameObject:
   - component: {fileID: 2099763469}
   - component: {fileID: 2099763468}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: AnnotateBtnLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
