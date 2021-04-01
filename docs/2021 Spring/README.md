@@ -21,14 +21,10 @@
 - 3D Object Translation 
 ### Tasks
 - Read Papers 
-
 - Created Report based on Papers 
-
 - Updated README with Build instructios for iOS
-
 - Fixed minor bugs with pinch to scale, translating and rotating X, Y, Z without using buttons
 
-  
 
 ## Week 5
 
@@ -45,7 +41,7 @@
 - Updated README Instructions + Common Issues 
 - Researched alternatives approaches for detecting user Tap / Selection
 - Attempted to implemented Tap / Selection of model detection
-- Implemnted feature to detect user tap and chagne axis based on number of taps 
+- Implemented feature to detect user tap and chagne axis based on number of taps 
 
 ### Summary 
 
@@ -127,7 +123,7 @@
 ### Tasks
 
 - Implemented single player annotation (multiple lines)
-- Implemented condition for annotation to be active after button has been pressed (and di-activated after button has been pressed)
+- Implemented condition for annotation to be active after button has been pressed (and de-activated after button has been pressed)
 - Updated Connection Status and Help button locations 
   - Fixed bug where Connection Status and Help button were not displaying correctly on smaller screens ie. phones
   - Fixed scaling bug with annotation and shell button 
