@@ -10,6 +10,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public Text connectionStatus;
     [SerializeField] GameObject RoomNameInput;
     public String RoomName;
+    private int ServerPing;
 
     [SerializeField] GameObject CreateRoomPnl;
 
@@ -26,7 +27,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.CloudRegion.Equals("cae/*"))
         {
-            connectionStatus.text = "Connected to Photon Server: Canada (East)";    
+            // connectionStatus.text = "Connected to Photon Server: Canada - Ping: " + ServerPing;
+            connectionStatus.text = "Connected to Photon Server: Canada";
         }
         else
         {
@@ -40,6 +42,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     private void Update()
     {
         RoomName = RoomNameInput.GetComponent<TMPro.TMP_InputField>().text;
+        ServerPing = PhotonNetwork.GetPing();
 
     }
 
@@ -62,6 +65,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         // check to make sure room name is not empty
         if (RoomName.Length > 0)
         {
+            connectionStatus.text = "Connecting to " + RoomName + "...";
+            connectionStatus.color = Color.white;
             PhotonNetwork.JoinOrCreateRoom(RoomName, roomOptions, TypedLobby.Default);
             CreateRoomPnl.SetActive(false);
         }
@@ -80,7 +85,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        connectionStatus.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name + " \nPlayer #: " + PhotonNetwork.CurrentRoom.PlayerCount;
+        connectionStatus.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name + ", Player #: " + PhotonNetwork.CurrentRoom.PlayerCount;
         connectionStatus.color = Color.cyan;
         Debug.Log("Joined Room successfully " + PhotonNetwork.CurrentRoom.Name);
     }
