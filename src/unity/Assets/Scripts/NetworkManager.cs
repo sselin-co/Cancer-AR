@@ -23,18 +23,18 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         Debug.Log("Connecting to Server...");
     }
 
-    public override void OnConnectedToMaster() //Callback function for when the first connection is established successfully.
+    public override void
+        OnConnectedToMaster() //Callback function for when the first connection is established successfully.
     {
         if (PhotonNetwork.CloudRegion.Equals("cae/*"))
         {
-            // connectionStatus.text = "Connected to Photon Server: Canada - Ping: " + ServerPing;
-            connectionStatus.text = "Connected to Photon Server: Canada";
+            connectionStatus.text = "Connected to Photon Server: Canada - Ping: " + ServerPing;
         }
         else
         {
             connectionStatus.text = "Connected to Photon Server: " + PhotonNetwork.CloudRegion;
         }
-        
+
         connectionStatus.color = Color.green;
         Debug.Log("Cloud Region is " + PhotonNetwork.CloudRegion);
     }
@@ -43,7 +43,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         RoomName = RoomNameInput.GetComponent<TMPro.TMP_InputField>().text;
         ServerPing = PhotonNetwork.GetPing();
-
     }
 
     public void onClick_CreateRoom()
@@ -57,7 +56,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             Debug.Log("Not connected");
             return;
         }
-        
+
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 4;
         Debug.Log("Connected to Photon");
@@ -85,11 +84,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        connectionStatus.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name + ", Player #: " + PhotonNetwork.CurrentRoom.PlayerCount;
+        connectionStatus.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name + ", Player #: " +
+                                PhotonNetwork.CurrentRoom.PlayerCount + " Ping: " + ServerPing;
         connectionStatus.color = Color.cyan;
         Debug.Log("Joined Room successfully " + PhotonNetwork.CurrentRoom.Name);
     }
-
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
