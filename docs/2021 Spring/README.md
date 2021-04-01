@@ -117,3 +117,17 @@
 - Implemented bi-directional access to models 
 - Implemented feature for 2+ users to join rooms
 - Built + Published iOS & Andriod APKs from Week 9 (sent via email)
+
+## Week 11
+
+### [Video](https://youtu.be/t0GCGDe_xxw)
+
+- Demo of New Annotation (Single Player)
+
+### Tasks
+
+- Implemented single player annotation (multiple lines)
+- Implemented condition for annotation to be active after button has been pressed (and di-activated after button has been pressed)
+- Updated Connection Status and Help button locations 
+  - Fixed bug where Connection Status and Help button were not displaying correctly on smaller screens ie. phones
+  - Fixed scaling bug with annotation and shell button 
