@@ -109,6 +109,11 @@ public class ButtonManager : MonoBehaviour
         axisStatus = "X Axis";
     }
 
+    void Update()
+    {
+        modeImage.SetActive(!Annotate.isAnnotateActive);
+    }
+
 
     // function is called onDisable 
     void OnDisable()
@@ -165,8 +170,6 @@ public class ButtonManager : MonoBehaviour
             modelRotateXScript.enabled = false;
             modelRotateYScript.enabled = false;
             modelRotateZScript.enabled = false;
-            // todo: replace picture with annotate image
-            modeImage.GetComponent<Image>().sprite = xImage;
         }
 
         // TODO: Look into making this "less" expensive and refactoring it 
@@ -192,6 +195,7 @@ public class ButtonManager : MonoBehaviour
             shellLbl.GetComponent<TMPro.TextMeshProUGUI>().text = "Hide shell";
         }
     }
+
     // function is called after user preses "OK" after viewing the cancer nodule
     public void DoneWithNodule()
     {
