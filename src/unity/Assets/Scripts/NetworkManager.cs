@@ -12,6 +12,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public String RoomName;
     private int ServerPing;
 
+    [SerializeField] GameObject selectKidneyBtn;
+    [SerializeField] GameObject selectLungBtn;
+
+
+    [SerializeField] GameObject CreateRoomBtn;
     [SerializeField] GameObject CreateRoomPnl;
 
     // Start is called before the first frame update
@@ -42,6 +47,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     private void Update()
     {
         RoomName = RoomNameInput.GetComponent<TMPro.TMP_InputField>().text;
+
+        if (RoomName.Length > 0 && PhotonNetwork.IsConnectedAndReady)
+        {
+            CreateRoomBtn.SetActive(true);
+        }
+
         ServerPing = PhotonNetwork.GetPing();
     }
 
@@ -84,10 +95,18 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        connectionStatus.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name + ", Player #: " +
-                                PhotonNetwork.CurrentRoom.PlayerCount + " Ping: " + ServerPing;
+        connectionStatus.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name + " - Player #: " +
+                                PhotonNetwork.CurrentRoom.PlayerCount + " - Ping: " + ServerPing;
         connectionStatus.color = Color.cyan;
+        DisplayModelButtons();
         Debug.Log("Joined Room successfully " + PhotonNetwork.CurrentRoom.Name);
+        
+    }
+
+    public void DisplayModelButtons()
+    {
+        selectKidneyBtn.SetActive(true);
+        selectLungBtn.SetActive(true);
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
