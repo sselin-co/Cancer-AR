@@ -43,7 +43,7 @@ public class ButtonManager : MonoBehaviour
 
     // initial screen mode selection variable 
     [SerializeField] GameObject modelSelectPnl;
-
+    
     // axis status based on number of taps
     string axisStatus = "";
     [SerializeField] GameObject modeImage;
@@ -207,5 +207,9 @@ public class ButtonManager : MonoBehaviour
         bool isHelpActive = helpPnl.activeSelf;
         helpPnl.SetActive(!isHelpActive);
         helpBtn.SetActive(isHelpActive);
+    }
+    public void onClick_ExitButton()
+    {
+        Application.Quit();
     }
 }
