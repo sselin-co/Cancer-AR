@@ -36,7 +36,7 @@ public class ButtonManager : MonoBehaviour
 
     // label used for each model (kidney or lungs)
     [SerializeField] GameObject modeLbl;
-
+    
     // models
     [SerializeField] GameObject lungs;
     [SerializeField] GameObject kidneys;
@@ -81,7 +81,7 @@ public class ButtonManager : MonoBehaviour
     // functions is called on initial load
     private void Setup()
     {
-        modelSelectPnl.SetActive(false);
+        // initialize game objects based on their tags
         modelTranslateScript = GameObject.FindWithTag("model").GetComponent<Lean.Touch.LeanTranslate>();
         modelScaleScript = GameObject.FindWithTag("model").GetComponent<Lean.Touch.LeanScale>();
         modelRotateXScript = GameObject.FindWithTag("model").GetComponent<Lean.Touch.LeanRotateCustomAxisX>();
@@ -89,12 +89,8 @@ public class ButtonManager : MonoBehaviour
         modelRotateZScript = GameObject.FindWithTag("model").GetComponent<Lean.Touch.LeanRotateCustomAxisZ>();
         shell = GameObject.FindWithTag("model");
         shellColl = GameObject.FindWithTag("model").GetComponent<BoxCollider>();
-        for (int i = 0; i < 5; i++)
-        {
-            texts.Add(GameObject.FindWithTag("notes").transform.GetChild(i).gameObject);
-            texts[i].SetActive(false);
-        }
-
+        
+        modelSelectPnl.SetActive(false);
         helpPnl.SetActive(true);
         // detect finger tap         
         Lean.Touch.LeanTouch.OnFingerTap += HandleFingerTap;
@@ -186,14 +182,22 @@ public class ButtonManager : MonoBehaviour
         {
             shell.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().enabled = false;
             shellColl.enabled = false;
-            shellLbl.GetComponent<TMPro.TextMeshProUGUI>().text = "Show shell";
         }
         else
         {
             shell.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().enabled = true;
             shellColl.enabled = true;
-            shellLbl.GetComponent<TMPro.TextMeshProUGUI>().text = "Hide shell";
         }
+
+        UpdateShellButtonLabel();
+    }
+
+    private void UpdateShellButtonLabel()
+    {
+        shellLbl.GetComponent<TMPro.TextMeshProUGUI>().text =
+            (shell.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().enabled)
+                ? "Show shell"
+                : "Hide shell";
     }
 
     // function is called after user preses "OK" after viewing the cancer nodule
@@ -207,9 +211,11 @@ public class ButtonManager : MonoBehaviour
         bool isHelpActive = helpPnl.activeSelf;
         helpPnl.SetActive(!isHelpActive);
         helpBtn.SetActive(isHelpActive);
+        UpdateShellButtonLabel();
     }
     public void onClick_ExitButton()
     {
         Application.Quit();
     }
+    
 }
