@@ -33,13 +33,18 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.CloudRegion.Equals("cae/*"))
         {
-            connectionStatus.text = "Connected to Photon Server: Canada - Ping: " + ServerPing;
+            connectionStatus.text = "Connected to Photon Server: Canada";
         }
-        else
+        else if (PhotonNetwork.CloudRegion.Equals("usw"))
+        {
+            connectionStatus.text = "Connected to Photon Server: US West";
+        }
+        else 
         {
             connectionStatus.text = "Connected to Photon Server: " + PhotonNetwork.CloudRegion;
         }
 
+        connectionStatus.text += " - Ping: " + ServerPing;
         connectionStatus.color = Color.green;
         Debug.Log("Cloud Region is " + PhotonNetwork.CloudRegion);
     }
