@@ -142,6 +142,7 @@
 
 - Implemented multiplayer annotation (multiple lines)
 - Implemented button for user to press to exit applicaiton 
+- Implemented feature for annotate button text to update according to the status of annotation
 - Implemented condition for "Create/Join Room" to not be visible until Photon has connected to server and user has inputed a room name
 - Implemented condition for "Select Which Model to Display" to not be visible until Photon has created or joined room 
 - Updated Connection Status to include server ping
