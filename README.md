@@ -8,6 +8,9 @@ A repository for a Cancer Nodules Visualization App. Currently supporting lungs 
 
 ## Get Started
 
+### Download and Print off Target Image
+Vuforia's target image - [Download Link](https://library.vuforia.com/sites/default/files/vuforia-library/articles/Features/Images/Image%20Targets/Best%20Practices%20for%20Designing%20and%20Developing%20Image-Based%20Targets/image-target-coordinate-axes-stones.jpg)
+
 ### Install Unity Hub
 1. Download [Unity Hub](https://store.unity.com/#plans-individual) (this application will be used to download/install Unity later) 
 2. Create a Free Unity Account 

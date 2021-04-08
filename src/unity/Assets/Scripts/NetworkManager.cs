@@ -12,6 +12,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public String RoomName;
     private int ServerPing;
 
+    [SerializeField] GameObject selectKidneyBtn;
+    [SerializeField] GameObject selectLungBtn;
+
+
+    [SerializeField] GameObject CreateRoomBtn;
     [SerializeField] GameObject CreateRoomPnl;
 
     // Start is called before the first frame update
@@ -23,18 +28,23 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         Debug.Log("Connecting to Server...");
     }
 
-    public override void OnConnectedToMaster() //Callback function for when the first connection is established successfully.
+    public override void
+        OnConnectedToMaster() //Callback function for when the first connection is established successfully.
     {
         if (PhotonNetwork.CloudRegion.Equals("cae/*"))
         {
-            // connectionStatus.text = "Connected to Photon Server: Canada - Ping: " + ServerPing;
             connectionStatus.text = "Connected to Photon Server: Canada";
         }
-        else
+        else if (PhotonNetwork.CloudRegion.Equals("usw"))
+        {
+            connectionStatus.text = "Connected to Photon Server: US West";
+        }
+        else 
         {
             connectionStatus.text = "Connected to Photon Server: " + PhotonNetwork.CloudRegion;
         }
-        
+
+        connectionStatus.text += " - Ping: " + ServerPing;
         connectionStatus.color = Color.green;
         Debug.Log("Cloud Region is " + PhotonNetwork.CloudRegion);
     }
@@ -42,8 +52,13 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     private void Update()
     {
         RoomName = RoomNameInput.GetComponent<TMPro.TMP_InputField>().text;
-        ServerPing = PhotonNetwork.GetPing();
 
+        if (RoomName.Length > 0 && PhotonNetwork.IsConnectedAndReady)
+        {
+            CreateRoomBtn.SetActive(true);
+        }
+
+        ServerPing = PhotonNetwork.GetPing();
     }
 
     public void onClick_CreateRoom()
@@ -57,7 +72,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             Debug.Log("Not connected");
             return;
         }
-        
+
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 4;
         Debug.Log("Connected to Photon");
@@ -85,11 +100,19 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        connectionStatus.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name + ", Player #: " + PhotonNetwork.CurrentRoom.PlayerCount;
+        connectionStatus.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name + " - Player #: " +
+                                PhotonNetwork.CurrentRoom.PlayerCount + " - Ping: " + ServerPing;
         connectionStatus.color = Color.cyan;
+        DisplayModelButtons();
         Debug.Log("Joined Room successfully " + PhotonNetwork.CurrentRoom.Name);
+        
     }
 
+    public void DisplayModelButtons()
+    {
+        selectKidneyBtn.SetActive(true);
+        selectLungBtn.SetActive(true);
+    }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
