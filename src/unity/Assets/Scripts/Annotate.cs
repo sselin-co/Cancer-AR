@@ -10,16 +10,18 @@ public class Annotate : MonoBehaviourPun
     Vector3 startPos;
     Plane objPlane;
     public static bool isAnnotateActive;
-
+    [SerializeField] GameObject annotationBtnLabel;
 
     void Start()
     {
         objPlane = new Plane(Camera.allCameras[0].transform.forward * -1, this.transform.position);
+        
     }
 
     public void onClick_Annotate()
     {
         isAnnotateActive = !isAnnotateActive;
+        annotationBtnLabel.GetComponent<TMPro.TextMeshProUGUI>().text = (isAnnotateActive) ? "Done" : "Annotate";
     }
 
     void Update()
@@ -33,8 +35,7 @@ public class Annotate : MonoBehaviourPun
                 if (objPlane.Raycast(mRay, out rayDistance))
                 {
                     startPos = mRay.GetPoint(rayDistance);
-                    // thisTrail = PhotonNetwork.Instantiate(trailPrefab.name, startPos, Quaternion.identity);
-                    thisTrail = Instantiate(trailPrefab, startPos, Quaternion.identity);
+                    thisTrail = PhotonNetwork.Instantiate(trailPrefab.name, startPos, Quaternion.identity);
                 }
             }
             else if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) || Input.GetMouseButton(0))
