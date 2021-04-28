@@ -3,6 +3,12 @@ An augmented reality mobile application with real time collaboration between 2 p
 
 ![Unity Install](README%20Pictures/AppScreenshot.png)
 
+## Video Demos
+
+- [3D Manipulation / Controls](https://youtu.be/1dBkyXCBECE)
+- [Multiplayer Feature](https://youtu.be/DuOQn5LT-lE)
+- [Built-in Annotation](https://youtu.be/QMWRvGZOz6U)
+
 ## UBC Undergraduate Research Conference 2021
 
 - [Presentation Slides](https://docs.google.com/presentation/d/1JMx8Nug02lwTFF46jchHaxJ9A-GyYxYcgL78YryCNQw/edit?usp=sharing)
