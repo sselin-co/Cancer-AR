@@ -1,4 +1,5 @@
-# CancerAR - Augmented Reality Mobile Application for Remote Collaboration
+# CancerAR 
+
 An augmented reality mobile application with real time collaboration between 2 people on a 3D model (lungs/kidnesy)
 
 ![Unity Install](README%20Pictures/AppScreenshot.png)
