@@ -1,7 +1,15 @@
-# CancerAR - UBC Cancer VR/AR Mobile Applicaiton 
-A repository for a Cancer Nodules Visualization App. Currently supporting lungs and kidneys. 
+# CancerAR - Augmented Reality Mobile Application for Remote Collaboration
+An augmented reality mobile application with real time collaboration between 2 people on a 3D model (lungs/kidnesy)
+
+![Unity Install](README%20Pictures/AppScreenshot.png)
+
+## UBC Undergraduate Research Conference 2021
+
+- [Presentation Slides](https://docs.google.com/presentation/d/1JMx8Nug02lwTFF46jchHaxJ9A-GyYxYcgL78YryCNQw/edit?usp=sharing)
 
 ## Contributors 
+
+- [@parsa-rajabi](https://github.com/Parsa-Rajabi) 
 - [@brandongk](https://github.com/brandongk-ubco) 
 - [@danbugs](https://github.com/danbugs)
 
@@ -121,7 +129,6 @@ You can follow the steps below to build and export the project
      5. Now rebuild and install the app again 
      
 - In case neither of those options work, Apple may have updated iOS and the `Profiles & Device Management` section has moved. In that case, refer to their documentation to locate that section.
-  
 
 #### Invalid Code Signiture 
 
