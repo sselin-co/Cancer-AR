@@ -19,6 +19,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     [SerializeField] GameObject CreateRoomBtn;
     [SerializeField] GameObject CreateRoomPnl;
 
+    [SerializeField] GameObject modelDropdown;
+    [SerializeField] GameObject modelSelectBtn;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -110,8 +113,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public void DisplayModelButtons()
     {
-        selectKidneyBtn.SetActive(true);
-        selectLungBtn.SetActive(true);
+        modelDropdown.SetActive(true);
+        modelSelectBtn.SetActive(true);
+
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)

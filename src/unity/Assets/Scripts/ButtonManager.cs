@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using TMPro;
 
 
 public class ButtonManager : MonoBehaviour
@@ -51,8 +52,27 @@ public class ButtonManager : MonoBehaviour
     public Sprite yImage;
     public Sprite zImage;
 
-    // displays kidneys when selected
-    public void SelecKidneys()
+    // dropdown object
+    public GameObject modelDropdown;
+
+    // gets dropdown value and displays the appropriate model
+    public void ModelSelect()
+    {
+        int val = modelDropdown.GetComponent<TMP_Dropdown>().value;
+        switch (val)
+        {
+            case 0:
+                SelecKidneys();
+                break;
+
+            case 1:
+                SelectLungs();
+                break;
+        }
+    }
+
+        // displays kidneys when selected
+        public void SelecKidneys()
     {
         lungs.SetActive(false);
         kidneys.SetActive(true);
@@ -170,6 +190,7 @@ public class ButtonManager : MonoBehaviour
 
         // TODO: Look into making this "less" expensive and refactoring it 
         modeLbl.GetComponent<TMPro.TextMeshProUGUI>().text = axisStatus;
+        // TODO: stop following line from  creating an ArgumentOutOfRange exception
         texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanTranslate>().enabled =
             false;
         texts[textsCounter == 0 ? textsCounter : textsCounter - 1].GetComponent<Lean.Touch.LeanScale>().enabled = false;

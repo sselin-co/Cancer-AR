@@ -391,7 +391,7 @@ MonoBehaviour:
 
     Radius: 13 voxels'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 0}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1437,15 +1437,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c8b2b99514fab4f34a27bd7f277b5c7a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bb613924440141708b5ebdb7d833962, type: 3}
---- !u!4 &1590949373189044173 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400002, guid: 3bb613924440141708b5ebdb7d833962,
-    type: 3}
-  m_PrefabInstance: {fileID: 1590949373189434703}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1590949373189532653 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: 3bb613924440141708b5ebdb7d833962,
+    type: 3}
+  m_PrefabInstance: {fileID: 1590949373189434703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1590949373189044173 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: 3bb613924440141708b5ebdb7d833962,
     type: 3}
   m_PrefabInstance: {fileID: 1590949373189434703}
   m_PrefabAsset: {fileID: 0}
