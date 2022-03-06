@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class Annotate : MonoBehaviourPun
 {
@@ -10,7 +11,8 @@ public class Annotate : MonoBehaviourPun
     Vector3 startPos;
     Plane objPlane;
     public static bool isAnnotateActive;
-    [SerializeField] GameObject annotationBtnLabel;
+    [SerializeField] GameObject annotationActiveSprite;
+    [SerializeField] GameObject annotationInactiveSprite;
 
     void Start()
     {
@@ -18,10 +20,19 @@ public class Annotate : MonoBehaviourPun
         
     }
 
-    public void onClick_Annotate()
+    public void OnClick_Annotate()
     {
         isAnnotateActive = !isAnnotateActive;
-        annotationBtnLabel.GetComponent<TMPro.TextMeshProUGUI>().text = (isAnnotateActive) ? "Done" : "Annotate";
+        if (isAnnotateActive)
+        {
+            annotationActiveSprite.SetActive(true);
+            annotationInactiveSprite.SetActive(false);
+        }
+        else
+        {
+            annotationActiveSprite.SetActive(false);
+            annotationInactiveSprite.SetActive(true);
+        }
     }
 
     void Update()
