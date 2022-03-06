@@ -52,8 +52,10 @@ public class ButtonManager : MonoBehaviour
     public Sprite yImage;
     public Sprite zImage;
 
-    // dropdown object
+    // dropdown object for model selection
     public GameObject modelDropdown;
+
+    public GameObject centralObject;
 
     // gets dropdown value and displays the appropriate model
     public void ModelSelect()
@@ -62,27 +64,13 @@ public class ButtonManager : MonoBehaviour
         switch (val)
         {
             case 0:
-                SelecKidneys();
+                SelectKidneys();
                 break;
 
             case 1:
                 SelectLungs();
                 break;
         }
-    }
-
-        // displays kidneys when selected
-        public void SelecKidneys()
-    {
-        lungs.SetActive(false);
-        kidneys.SetActive(true);
-        if (PhotonNetwork.IsConnected)
-        {
-            kidneys = PhotonNetwork.Instantiate("models/model2", kidneys.transform.position, kidneys.transform.rotation,
-                0);
-        }
-
-        Setup();
     }
 
     // displays lungs when selected
@@ -93,10 +81,27 @@ public class ButtonManager : MonoBehaviour
         if (PhotonNetwork.IsConnected)
         {
             lungs = PhotonNetwork.Instantiate("models/model", lungs.transform.position, lungs.transform.rotation, 0);
+            centralObject = GameObject.Find("ImageTarget/model/model/default");
         }
 
         Setup();
     }
+
+    // displays kidneys when selected
+    public void SelectKidneys()
+    {
+        lungs.SetActive(false);
+        kidneys.SetActive(true);
+        if (PhotonNetwork.IsConnected)
+        {
+            kidneys = PhotonNetwork.Instantiate("models/model2", kidneys.transform.position, kidneys.transform.rotation,
+                0);
+            centralObject = GameObject.Find("ImageTarget/model2/model/default");
+        }
+
+        Setup();
+    }
+
 
     // functions is called on initial load
     private void Setup()
