@@ -47,6 +47,7 @@ public class Annotate : MonoBehaviourPun
                 {
                     startPos = mRay.GetPoint(rayDistance);
                     thisTrail = PhotonNetwork.Instantiate(trailPrefab.name, startPos, Quaternion.identity);
+                    print(trailPrefab.name);
                 }
             }
             else if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) || Input.GetMouseButton(0))

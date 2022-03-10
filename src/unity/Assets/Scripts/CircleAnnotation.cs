@@ -76,7 +76,7 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
                 g.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
             }
             //circle.transform.parent = g.transform;
-            var Circle = PhotonNetwork.Instantiate("models/Circle", hit.point, Quaternion.identity);
+            var Circle = PhotonNetwork.Instantiate("Circle", hit.point, Quaternion.identity);
             Circle.transform.parent = g.transform;
 
         }
