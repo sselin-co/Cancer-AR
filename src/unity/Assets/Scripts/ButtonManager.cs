@@ -21,6 +21,8 @@ public class ButtonManager : MonoBehaviour
     // model outer shell + label
     GameObject shell;
     [SerializeField] GameObject shellLbl;
+    [SerializeField] GameObject shellActiveSprite;
+    [SerializeField] GameObject shellInactiveSprite;
     BoxCollider shellColl;
 
     // annotation panel, annotate texts + input 
@@ -208,11 +210,15 @@ public class ButtonManager : MonoBehaviour
         {
             shell.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().enabled = false;
             shellColl.enabled = false;
+            shellActiveSprite.SetActive(true);
+            shellInactiveSprite.SetActive(false);
         }
         else
         {
             shell.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().enabled = true;
             shellColl.enabled = true;
+            shellActiveSprite.SetActive(false);
+            shellInactiveSprite.SetActive(true);
         }
 
         UpdateShellButtonLabel();
@@ -220,10 +226,20 @@ public class ButtonManager : MonoBehaviour
 
     private void UpdateShellButtonLabel()
     {
-        shellLbl.GetComponent<TMPro.TextMeshProUGUI>().text =
+        /** shellLbl.GetComponent<TMPro.TextMeshProUGUI>().text =
             (shell.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().enabled)
                 ? "Show shell"
-                : "Hide shell";
+                : "Hide shell"; **/
+        /** if (shell.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().enabled)
+        {
+            shellActiveSprite.SetActive(true);
+            shellInactiveSprite.SetActive(false);
+        }
+        else
+        {
+            shellActiveSprite.SetActive(false);
+            shellInactiveSprite.SetActive(true);
+        } **/
     }
 
     // function is called after user preses "OK" after viewing the cancer nodule
