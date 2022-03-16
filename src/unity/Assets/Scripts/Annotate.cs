@@ -10,14 +10,16 @@ public class Annotate : MonoBehaviourPun
     GameObject thisTrail;
     Vector3 startPos;
     Plane objPlane;
+    public GameObject parentKidneys;
+    public GameObject parentLungs;
     public static bool isAnnotateActive;
     [SerializeField] GameObject annotationActiveSprite;
     [SerializeField] GameObject annotationInactiveSprite;
 
     void Start()
     {
-        objPlane = new Plane(Camera.allCameras[0].transform.forward * -1, this.transform.position);
-        
+        //objPlane = new Plane(Camera.allCameras[0].transform.forward * -1, this.transform.position);
+        objPlane = new Plane(Camera.allCameras[0].transform.forward, this.transform.position);
     }
 
     public void OnClick_Annotate()

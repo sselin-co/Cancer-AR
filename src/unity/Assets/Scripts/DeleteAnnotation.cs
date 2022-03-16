@@ -43,7 +43,7 @@ public class DeleteAnnotation : MonoBehaviour
                     GameObject[] swipes = GameObject.FindGameObjectsWithTag("swipe");
                     foreach(GameObject swipe in swipes)
                     {
-                        Destroy(swipe);
+                        Photon.Pun.PhotonNetwork.Destroy(swipe);
                         print("annotation destroyed");
                     }
                 }
