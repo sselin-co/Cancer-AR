@@ -16,6 +16,7 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
     public bool addCircleEnabled = false;
     [SerializeField] public GameObject circleActiveSprite;
     [SerializeField] public GameObject circleInactiveSprite;
+    private GameObject circleAnnotation;
 
 
     // Start is called before the first frame update
@@ -38,7 +39,18 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
         if (Input.GetMouseButtonDown(0) && addCircleEnabled)
         {
             addCircleEnabled = false;
-            addCircleLabel();
+            int val = ButtonManager.GetComponent<ButtonManager>().modelDropdown.GetComponent<TMP_Dropdown>().value;
+            if (val == 0) // Kidneys
+            {
+                PhotonView view = PhotonView.Find(2);
+                view.RPC("AddCircleLabel", RpcTarget.All);
+            }
+            if (val == 1) // Lungs
+            {
+                PhotonView view = PhotonView.Find(1);
+                view.RPC("AddCircleLabel", RpcTarget.All);
+            }
+            //AddCircleLabel();
             circleActiveSprite.SetActive(false);
             circleInactiveSprite.SetActive(true);
             //bc.size = new Vector3(5, 5, 5);
@@ -50,41 +62,16 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
     }
 
     [PunRPC]
-    public void addCircleLabel()
+    public void AddCircleLabel()
     {
-        var circleAnnotation = PhotonNetwork.Instantiate(circle.name, Vector3.zero, Quaternion.identity);
-        // GameObject g = new GameObject("Circle");
-        //BoxCollider bc = g.AddComponent<BoxCollider>();
+        circleAnnotation = PhotonNetwork.Instantiate(circle.name, Vector3.zero, Quaternion.identity);
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         MeshCollider mc = ButtonManager.GetComponent<ButtonManager>().centralObject.GetComponent<MeshCollider>();
         mc.Raycast(ray, out hit, 1000);
+        print(circleAnnotation);
         circleAnnotation.transform.SetParent(ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent);
         circleAnnotation.transform.SetPositionAndRotation(new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.identity);
-        if (mc.Raycast(ray, out hit, 1000))
-        {
-           
-            /** int val = ButtonManager.GetComponent<ButtonManager>().modelDropdown.GetComponent<TMP_Dropdown>().value;
-             if (val == 0)
-             {
-                 g.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-             }
-             else if (val == 2)
-             {
-                 g.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z - 4);
-             }
-             else
-             {
-                 g.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-             }**/
-            //circle.transform.parent = g.transform;
-            //var Circle = PhotonNetwork.Instantiate(circle.name, hit.point, Quaternion.identity);
-            //Circle.transform.parent = g.transform;
-
-        }
-        //circle.transform.position = centralObject.transform.position;
-        //g.transform.rotation = Quaternion.LookRotation(-2 * ButtonManager.GetComponent<ButtonManager>().centralObject.transform.position);
-        //bc.size = new Vector3(20, 20, 20);
 
     }
     public void onClick_AddCircle()
