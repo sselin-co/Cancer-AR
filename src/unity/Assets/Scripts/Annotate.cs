@@ -49,11 +49,11 @@ public class Annotate : MonoBehaviourPun
                     thisTrail = PhotonNetwork.Instantiate(trailPrefab.name, startPos, Quaternion.identity);
                 }
             }
-            else if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) || Input.GetMouseButton(0))
+            else if ((Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) || Input.GetMouseButton(0)  && thisTrail != null)
             {
                 Ray mRay = Camera.allCameras[0].ScreenPointToRay(Input.mousePosition);
                 float rayDistance;
-                if (objPlane.Raycast(mRay, out rayDistance) && thisTrail != null)
+                if (objPlane.Raycast(mRay, out rayDistance))
                 {
                     thisTrail.transform.position = mRay.GetPoint(rayDistance);
                 }
