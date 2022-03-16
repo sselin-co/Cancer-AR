@@ -1784,6 +1784,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5789129892271198658}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &385477980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385477978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473e581f37376f841aebf0f39f70d0fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circle: {fileID: 6611438952012512747, guid: 20d5cf20297115a45ba7ca26f6d75a95, type: 3}
+  addCircleBtn: {fileID: 52740226}
+  ButtonManager: {fileID: 1166516373}
+  addCircleEnabled: 0
+  circleActiveSprite: {fileID: 1759058688}
+  circleInactiveSprite: {fileID: 1583351137}
 --- !u!1 &424392366
 GameObject:
   m_ObjectHideFlags: 0
