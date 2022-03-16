@@ -51,7 +51,6 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
     [PunRPC]
     public void addCircleLabel()
     {
-        print(ButtonManager.GetComponent<ButtonManager>().centralObject.transform.position);
         var g = PhotonNetwork.Instantiate(circle.name, Vector3.zero, Quaternion.identity);
         // GameObject g = new GameObject("Circle");
         BoxCollider bc = g.AddComponent<BoxCollider>();
@@ -78,6 +77,7 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
             //circle.transform.parent = g.transform;
             var CircleAnnotation = PhotonNetwork.Instantiate(circle.name, hit.point, Quaternion.identity);
             CircleAnnotation.transform.parent = g.transform;
+            print(CircleAnnotation.transform.position);
 
         }
         //circle.transform.position = centralObject.transform.position;

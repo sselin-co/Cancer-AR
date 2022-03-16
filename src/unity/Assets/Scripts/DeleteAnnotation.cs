@@ -9,8 +9,6 @@ public class DeleteAnnotation : MonoBehaviour
     // private Vector3 Pivot;
     // Start is called before the first frame update
     public static int flag = 0;
-    [SerializeField] GameObject disposeActiveSprite;
-    [SerializeField] GameObject disposeInactiveSprite;
     void Start()
     {
 
@@ -20,48 +18,25 @@ public class DeleteAnnotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && deleteEnabled)
+        if (deleteEnabled)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 1000))
-            {
-                BoxCollider bc = hit.collider as BoxCollider;
-                print(bc.gameObject.tag);
-                if (bc != null && bc.gameObject.tag != "model")
-                {
-                    if (bc.gameObject.name == "EmptyObj(Clone)")
-                    {
-                        flag = 1;
-                        Debug.Log("3d label");
-                    }
-                    Photon.Pun.PhotonNetwork.Destroy(bc.gameObject);
-                }
-                else
-                {
-                    GameObject[] swipes = GameObject.FindGameObjectsWithTag("swipe");
-                    foreach(GameObject swipe in swipes)
-                    {
-                        Photon.Pun.PhotonNetwork.Destroy(swipe);
-                        print("annotation destroyed");
-                    }
-                }
-            }
             deleteEnabled = false;
-            disposeActiveSprite.SetActive(false);
-            disposeInactiveSprite.SetActive(true);
+            DeleteAnnotations(GameObject.FindGameObjectsWithTag("swipe"));
+            DeleteAnnotations(GameObject.FindGameObjectsWithTag("circle"));
+        }
+    }
+    void DeleteAnnotations(GameObject[] objs)
+    {
+        foreach (GameObject obj in objs)
+        {
+            Photon.Pun.PhotonNetwork.Destroy(obj);
+            print(obj.name + " destroyed");
         }
     }
 
     public void onClick_Delete()
     {
-        if (!deleteEnabled)
-        {
-            deleteEnabled = true;
-            disposeActiveSprite.SetActive(true);
-            disposeInactiveSprite.SetActive(false);
-        }
+        deleteEnabled = true;
     }
 
 }
