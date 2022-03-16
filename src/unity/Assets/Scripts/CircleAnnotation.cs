@@ -58,11 +58,12 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         MeshCollider mc = ButtonManager.GetComponent<ButtonManager>().centralObject.GetComponent<MeshCollider>();
-
+        mc.Raycast(ray, out hit, 1000);
+        circleAnnotation.transform.SetParent(ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent);
+        circleAnnotation.transform.SetPositionAndRotation(new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.identity);
         if (mc.Raycast(ray, out hit, 1000))
         {
-            circleAnnotation.transform.SetParent(ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent);
-            circleAnnotation.transform.SetPositionAndRotation(new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.identity);
+           
             /** int val = ButtonManager.GetComponent<ButtonManager>().modelDropdown.GetComponent<TMP_Dropdown>().value;
              if (val == 0)
              {
