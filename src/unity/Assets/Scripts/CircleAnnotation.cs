@@ -51,18 +51,19 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
     [PunRPC]
     public void addCircleLabel()
     {
-        var g = PhotonNetwork.Instantiate(circle.name, Vector3.zero, Quaternion.identity);
+        //var g = PhotonNetwork.Instantiate(circle.name, Vector3.zero, Quaternion.identity);
         // GameObject g = new GameObject("Circle");
-        BoxCollider bc = g.AddComponent<BoxCollider>();
+       // BoxCollider bc = g.AddComponent<BoxCollider>();
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         MeshCollider mc = ButtonManager.GetComponent<ButtonManager>().centralObject.GetComponent<MeshCollider>();
 
         if (mc.Raycast(ray, out hit, 1000))
         {
-            g.transform.parent = ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent;
-            int val = ButtonManager.GetComponent<ButtonManager>().modelDropdown.GetComponent<TMP_Dropdown>().value;
-            if (val == 0)
+           // g.transform.parent = ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent;
+           // int val = ButtonManager.GetComponent<ButtonManager>().modelDropdown.GetComponent<TMP_Dropdown>().value;
+           // print(val);
+          /**  if (val == 0)
             {
                 g.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
             }
@@ -73,11 +74,11 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
             else
             {
                 g.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-            }
+            } **/
             //circle.transform.parent = g.transform;
             var CircleAnnotation = PhotonNetwork.Instantiate(circle.name, hit.point, Quaternion.identity);
-            CircleAnnotation.transform.parent = g.transform;
-            print(CircleAnnotation.transform.position);
+            //CircleAnnotation.transform.parent = g.transform;
+            //print(CircleAnnotation.transform.position);
 
         }
         //circle.transform.position = centralObject.transform.position;
