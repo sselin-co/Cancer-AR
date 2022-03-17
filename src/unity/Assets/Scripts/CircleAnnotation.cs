@@ -70,8 +70,8 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
     public void AddCircleLabel(Vector3 hit)
     {
         print("AddCircleLabel RPC has been triggered");
-        circleAnnotation = PhotonNetwork.Instantiate(circle.name, Vector3.zero, Quaternion.identity);
-        circleAnnotation.transform.SetPositionAndRotation(new Vector3(hit.x, hit.y, hit.z), Quaternion.identity);
+        circleAnnotation = PhotonNetwork.Instantiate(circle.name, new Vector3(hit.x, hit.y, hit.z), Quaternion.identity);
+        //circleAnnotation.transform.SetPositionAndRotation(new Vector3(hit.x, hit.y, hit.z), Quaternion.identity);
         circleAnnotation.transform.SetParent(ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent);
 
     }
