@@ -47,13 +47,15 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
             int val = ButtonManager.GetComponent<ButtonManager>().modelDropdown.GetComponent<TMP_Dropdown>().value;
             if (val == 0) // Kidneys
             {
+                AddCircleLabel(hitVector);
                 PhotonView view = PhotonView.Find(2);
-                view.RPC("AddCircleLabel", RpcTarget.AllBufferedViaServer, hitVector);
+                view.RPC("AddCircleLabel", RpcTarget.Others, hitVector);
             }
             if (val == 1) // Lungs
             {
+                AddCircleLabel(hitVector);
                 PhotonView view = PhotonView.Find(1);
-                view.RPC("AddCircleLabel", RpcTarget.AllBufferedViaServer, hitVector);
+                view.RPC("AddCircleLabel", RpcTarget.Others, hitVector);
             }
             //AddCircleLabel();
             circleActiveSprite.SetActive(false);
@@ -70,7 +72,7 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
     public void AddCircleLabel(Vector3 hit)
     {
         print("AddCircleLabel RPC has been triggered");
-        circleAnnotation = PhotonNetwork.Instantiate(circle.name, new Vector3(hit.x, hit.y, hit.z), Quaternion.identity);
+        circleAnnotation = PhotonNetwork.Instantiate(circle.name, hit, Quaternion.identity);
         //circleAnnotation.transform.SetPositionAndRotation(new Vector3(hit.x, hit.y, hit.z), Quaternion.identity);
         circleAnnotation.transform.SetParent(ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent);
 
