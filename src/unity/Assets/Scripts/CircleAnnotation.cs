@@ -48,12 +48,12 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
             if (val == 0) // Kidneys
             {
                 PhotonView view = PhotonView.Find(2);
-                view.RPC("AddCircleLabel", RpcTarget.All, hitVector);
+                view.RPC("AddCircleLabel", RpcTarget.AllBufferedViaServer, hitVector);
             }
             if (val == 1) // Lungs
             {
                 PhotonView view = PhotonView.Find(1);
-                view.RPC("AddCircleLabel", RpcTarget.All, hitVector);
+                view.RPC("AddCircleLabel", RpcTarget.AllBufferedViaServer, hitVector);
             }
             //AddCircleLabel();
             circleActiveSprite.SetActive(false);
