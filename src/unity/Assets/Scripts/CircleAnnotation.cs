@@ -47,15 +47,15 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
             int val = ButtonManager.GetComponent<ButtonManager>().modelDropdown.GetComponent<TMP_Dropdown>().value;
             if (val == 0) // Kidneys
             {
-                AddCircleLabel(hitVector);
+                //AddCircleLabel(hitVector);
                 PhotonView view = PhotonView.Find(2);
-                view.RPC("AddCircleLabel", RpcTarget.Others, hitVector);
+                view.RPC("AddCircleLabel", RpcTarget.All, hitVector);
             }
-            if (val == 1) // Lungs
+            else if (val == 1) // Lungs
             {
-                AddCircleLabel(hitVector);
+                //AddCircleLabel(hitVector);
                 PhotonView view = PhotonView.Find(1);
-                view.RPC("AddCircleLabel", RpcTarget.Others, hitVector);
+                view.RPC("AddCircleLabel", RpcTarget.All, hitVector);
             }
             //AddCircleLabel();
             circleActiveSprite.SetActive(false);
