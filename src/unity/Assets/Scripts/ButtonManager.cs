@@ -57,6 +57,7 @@ public class ButtonManager : MonoBehaviour
     // dropdown object for model selection
     public GameObject modelDropdown;
 
+    // Used in CircleAnnotation.cs to act as the anchor for circles
     public GameObject centralObject;
 
     // gets dropdown value and displays the appropriate model
