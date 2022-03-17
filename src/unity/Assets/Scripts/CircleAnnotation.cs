@@ -39,16 +39,21 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
         if (Input.GetMouseButtonDown(0) && addCircleEnabled)
         {
             addCircleEnabled = false;
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            MeshCollider mc = ButtonManager.GetComponent<ButtonManager>().centralObject.GetComponent<MeshCollider>();
+            mc.Raycast(ray, out hit, 1000);
+            Vector3 hitVector = hit.point;
             int val = ButtonManager.GetComponent<ButtonManager>().modelDropdown.GetComponent<TMP_Dropdown>().value;
             if (val == 0) // Kidneys
             {
                 PhotonView view = PhotonView.Find(2);
-                view.RPC("AddCircleLabel", RpcTarget.All);
+                view.RPC("AddCircleLabel", RpcTarget.All, hitVector);
             }
             if (val == 1) // Lungs
             {
                 PhotonView view = PhotonView.Find(1);
-                view.RPC("AddCircleLabel", RpcTarget.All);
+                view.RPC("AddCircleLabel", RpcTarget.All, hitVector);
             }
             //AddCircleLabel();
             circleActiveSprite.SetActive(false);
@@ -62,15 +67,11 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
     }
 
     [PunRPC]
-    public void AddCircleLabel()
+    public void AddCircleLabel(Vector3 hit)
     {
         print("AddCircleLabel RPC has been triggered");
         circleAnnotation = PhotonNetwork.Instantiate(circle.name, Vector3.zero, Quaternion.identity);
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        MeshCollider mc = ButtonManager.GetComponent<ButtonManager>().centralObject.GetComponent<MeshCollider>();
-        mc.Raycast(ray, out hit, 1000);
-        circleAnnotation.transform.SetPositionAndRotation(new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.identity);
+        circleAnnotation.transform.SetPositionAndRotation(new Vector3(hit.x, hit.y, hit.z), Quaternion.identity);
         circleAnnotation.transform.SetParent(ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent);
 
     }
