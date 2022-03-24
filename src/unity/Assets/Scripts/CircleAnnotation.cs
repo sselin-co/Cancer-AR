@@ -49,13 +49,17 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
             {
                 //AddCircleLabel(hitVector);
                 PhotonView view = PhotonView.Find(2);
-                view.RPC("AddCircleLabel", RpcTarget.All, hitVector);
+                circleAnnotation = PhotonNetwork.Instantiate(circle.name, hitVector, Quaternion.identity);
+                circleAnnotation.transform.SetParent(ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent);
+                view.RPC("AddCircleLabel", RpcTarget.Others, circleAnnotation.GetPhotonView().ViewID);
             }
             else if (val == 1) // Lungs
             {
                 //AddCircleLabel(hitVector);
                 PhotonView view = PhotonView.Find(1);
-                view.RPC("AddCircleLabel", RpcTarget.All, hitVector);
+                circleAnnotation = PhotonNetwork.Instantiate(circle.name, hitVector, Quaternion.identity);
+                circleAnnotation.transform.SetParent(ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent);
+                view.RPC("AddCircleLabel", RpcTarget.Others, circleAnnotation.GetPhotonView().ViewID);
             }
             //AddCircleLabel();
             circleActiveSprite.SetActive(false);
@@ -69,11 +73,11 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
     }
 
     [PunRPC]
-    public void AddCircleLabel(Vector3 hit)
+    public void AddCircleLabel(int viewID)
     {
         print("AddCircleLabel RPC has been triggered");
-        circleAnnotation = PhotonNetwork.Instantiate(circle.name, hit, Quaternion.identity);
-        //circleAnnotation.transform.SetPositionAndRotation(new Vector3(hit.x, hit.y, hit.z), Quaternion.identity);
+        circleAnnotation = PhotonView.Find(viewID).gameObject;
+        //circleAnnotation = PhotonNetwork.Instantiate(circle.name, hit, Quaternion.identity);
         circleAnnotation.transform.SetParent(ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent);
 
     }

@@ -84,7 +84,9 @@ public class ButtonManager : MonoBehaviour
         if (PhotonNetwork.IsConnected)
         {
             lungs = PhotonNetwork.Instantiate("models/model", lungs.transform.position, lungs.transform.rotation, 0);
+            // This line seems kinda sus, why is the central object not the Photon instantiated object?
             centralObject = GameObject.Find("ImageTarget/model/model/default");
+            //centralObject = lungs;
         }
 
         Setup();
@@ -97,9 +99,9 @@ public class ButtonManager : MonoBehaviour
         kidneys.SetActive(true);
         if (PhotonNetwork.IsConnected)
         {
-            kidneys = PhotonNetwork.Instantiate("models/model2", kidneys.transform.position, kidneys.transform.rotation,
-                0);
+            kidneys = PhotonNetwork.Instantiate("models/model2", kidneys.transform.position, kidneys.transform.rotation, 0);
             centralObject = GameObject.Find("ImageTarget/model2/model/default");
+            //centralObject = kidneys;
         }
 
         Setup();
