@@ -9,6 +9,7 @@ TagManager:
   - text0
   - swipe
   - circle
+  - arrow
   layers:
   - Default
   - TransparentFX
