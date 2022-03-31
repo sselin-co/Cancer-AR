@@ -57,7 +57,7 @@ public class ButtonManager : MonoBehaviour
     // dropdown object for model selection
     public GameObject modelDropdown;
 
-    // Used in CircleAnnotation.cs to act as the anchor for circles
+    // Used for the 1-click annotations (circle, arrow) to act as the anchor object
     public GameObject centralObject;
 
     // gets dropdown value and displays the appropriate model
@@ -84,9 +84,7 @@ public class ButtonManager : MonoBehaviour
         if (PhotonNetwork.IsConnected)
         {
             lungs = PhotonNetwork.Instantiate("models/model", lungs.transform.position, lungs.transform.rotation, 0);
-            // This line seems kinda sus, why is the central object not the Photon instantiated object?
             centralObject = GameObject.Find("ImageTarget/model/model/default");
-            //centralObject = lungs;
         }
 
         Setup();
@@ -101,7 +99,6 @@ public class ButtonManager : MonoBehaviour
         {
             kidneys = PhotonNetwork.Instantiate("models/model2", kidneys.transform.position, kidneys.transform.rotation, 0);
             centralObject = GameObject.Find("ImageTarget/model2/model/default");
-            //centralObject = kidneys;
         }
 
         Setup();

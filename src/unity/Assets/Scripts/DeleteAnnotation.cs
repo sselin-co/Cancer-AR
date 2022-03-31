@@ -21,8 +21,11 @@ public class DeleteAnnotation : MonoBehaviour
         if (deleteEnabled)
         {
             deleteEnabled = false;
+            // when adding new annotations, make sure to make the prefab have either one of these tags
+            // or add a new one to the prefab and add it here
             DeleteAnnotations(GameObject.FindGameObjectsWithTag("swipe"));
             DeleteAnnotations(GameObject.FindGameObjectsWithTag("circle"));
+            DeleteAnnotations(GameObject.FindGameObjectsWithTag("arrow"));
         }
     }
     void DeleteAnnotations(GameObject[] objs)

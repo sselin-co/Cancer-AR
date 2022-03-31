@@ -25,16 +25,16 @@ public class Annotate : MonoBehaviourPun
     public void OnClick_Annotate()
     {
         isAnnotateActive = !isAnnotateActive;
-        if (isAnnotateActive)
-        {
-            annotationActiveSprite.SetActive(true);
-            annotationInactiveSprite.SetActive(false);
-        }
-        else
-        {
-            annotationActiveSprite.SetActive(false);
-            annotationInactiveSprite.SetActive(true);
-        }
+        /** if (isAnnotateActive)
+         {
+             annotationActiveSprite.SetActive(true);
+             annotationInactiveSprite.SetActive(false);
+         }
+         else
+         {
+             annotationActiveSprite.SetActive(false);
+             annotationInactiveSprite.SetActive(true);
+         } **/
     }
 
     void Update()
@@ -66,6 +66,7 @@ public class Annotate : MonoBehaviourPun
                 {
                     Destroy(thisTrail);
                 }
+                isAnnotateActive = !isAnnotateActive;
             }
         }
     }
