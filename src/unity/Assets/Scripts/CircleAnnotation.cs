@@ -47,7 +47,7 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
             {
                 addCircleEnabled = false;
                 PhotonView view = PhotonView.Find(2);
-                circleAnnotation = PhotonNetwork.Instantiate(circle.name, hitVector, Quaternion.identity);
+                circleAnnotation = PhotonNetwork.Instantiate(circle.name, hitVector, Quaternion.FromToRotation(Vector3.down, hit.normal));
                 circleAnnotation.transform.SetParent(ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent);
                 view.RPC("AddCircleLabel", RpcTarget.Others, circleAnnotation.GetPhotonView().ViewID);
             }
@@ -55,7 +55,7 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
             {
                 addCircleEnabled = false;
                 PhotonView view = PhotonView.Find(1);
-                circleAnnotation = PhotonNetwork.Instantiate(circle.name, hitVector, Quaternion.identity);
+                circleAnnotation = PhotonNetwork.Instantiate(circle.name, hitVector, Quaternion.FromToRotation(Vector3.down, hit.normal));
                 circleAnnotation.transform.SetParent(ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent);
                 view.RPC("AddCircleLabel", RpcTarget.Others, circleAnnotation.GetPhotonView().ViewID);
             }

@@ -38,23 +38,28 @@ public class ArrowAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             MeshCollider mc = ButtonManager.GetComponent<ButtonManager>().centralObject.GetComponent<MeshCollider>();
+            // casts a ray from where the user touches to detect if a model has been interacted with
             mc.Raycast(ray, out hit, 1000);
             Vector3 hitVector = hit.point;
             int val = ButtonManager.GetComponent<ButtonManager>().modelDropdown.GetComponent<TMP_Dropdown>().value;
             if (val == 0) // Kidneys
             {
                 addArrowEnabled = false;
+                // Kidney photon view ID is 2
                 PhotonView view = PhotonView.Find(2);
-                arrowAnnotation = PhotonNetwork.Instantiate(arrow.name, hitVector, Quaternion.identity);
+                arrowAnnotation = PhotonNetwork.Instantiate(arrow.name, hitVector, Quaternion.FromToRotation(Vector3.up, hit.normal));
                 arrowAnnotation.transform.SetParent(ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent);
+                // Grabs recently instantiated annotation and sync it with the other player
                 view.RPC("AddArrowLabel", RpcTarget.Others, arrowAnnotation.GetPhotonView().ViewID);
             }
             else if (val == 1) // Lungs
             {
                 addArrowEnabled = false;
+                // Lungs photon ID is 1
                 PhotonView view = PhotonView.Find(1);
-                arrowAnnotation = PhotonNetwork.Instantiate(arrow.name, hitVector, Quaternion.identity);
+                arrowAnnotation = PhotonNetwork.Instantiate(arrow.name, hitVector, Quaternion.FromToRotation(Vector3.up, hit.normal));
                 arrowAnnotation.transform.SetParent(ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent);
+                // Grabs recently instantiated annotation and sync it with the other player
                 view.RPC("AddArrowLabel", RpcTarget.Others, arrowAnnotation.GetPhotonView().ViewID);
             }
 
