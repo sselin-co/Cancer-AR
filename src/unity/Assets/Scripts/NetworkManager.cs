@@ -11,16 +11,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     [SerializeField] GameObject RoomNameInput;
     public String RoomName;
     private int ServerPing;
-
-    [SerializeField] GameObject selectKidneyBtn;
-    [SerializeField] GameObject selectLungBtn;
-
-
     [SerializeField] GameObject CreateRoomBtn;
     [SerializeField] GameObject CreateRoomPnl;
-
     [SerializeField] GameObject modelDropdown;
     [SerializeField] GameObject modelSelectBtn;
+    private bool IsConnected = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -42,26 +37,26 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         {
             connectionStatus.text = "Connected to Photon Server: US West";
         }
-        else 
+        else
         {
             connectionStatus.text = "Connected to Photon Server: " + PhotonNetwork.CloudRegion;
         }
-
         connectionStatus.text += " - Ping: " + ServerPing;
         connectionStatus.color = Color.green;
         Debug.Log("Cloud Region is " + PhotonNetwork.CloudRegion);
+        IsConnected = true;
     }
 
     private void Update()
     {
         RoomName = RoomNameInput.GetComponent<TMPro.TMP_InputField>().text;
-
-        if (RoomName.Length > 0 && PhotonNetwork.IsConnectedAndReady)
+        ServerPing = PhotonNetwork.GetPing();
+        if (IsConnected && RoomName.Length > 0)
         {
             CreateRoomBtn.SetActive(true);
+            return;
         }
-
-        ServerPing = PhotonNetwork.GetPing();
+        CreateRoomBtn.SetActive(false);
     }
 
     public void onClick_CreateRoom()
@@ -104,18 +99,17 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         connectionStatus.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name + " - Player #: " +
-                                PhotonNetwork.CurrentRoom.PlayerCount + " - Ping: " + ServerPing;
+        PhotonNetwork.CurrentRoom.PlayerCount + " - Ping: " + ServerPing;
         connectionStatus.color = Color.cyan;
         DisplayModelButtons();
         Debug.Log("Joined Room successfully " + PhotonNetwork.CurrentRoom.Name);
-        
+
     }
 
     public void DisplayModelButtons()
     {
         modelDropdown.SetActive(true);
         modelSelectBtn.SetActive(true);
-
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
