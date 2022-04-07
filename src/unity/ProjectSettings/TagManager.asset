@@ -10,6 +10,7 @@ TagManager:
   - swipe
   - circle
   - arrow
+  - annotation
   layers:
   - Default
   - TransparentFX
