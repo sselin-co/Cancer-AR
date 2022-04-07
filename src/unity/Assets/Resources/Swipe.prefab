@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3614324111647994171}
   m_Layer: 0
   m_Name: Swipe
-  m_TagString: swipe
+  m_TagString: annotation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -5,10 +5,6 @@ using Photon;
 
 public class DeleteAnnotation : MonoBehaviour
 {
-    //private GameObject addArrowBtn;
-    // private Vector3 Pivot;
-    // Start is called before the first frame update
-    public static int flag = 0;
     void Start()
     {
 
@@ -21,11 +17,8 @@ public class DeleteAnnotation : MonoBehaviour
         if (deleteEnabled)
         {
             deleteEnabled = false;
-            // when adding new annotations, make sure to make the prefab have either one of these tags
-            // or add a new one to the prefab and add it here
-            DeleteAnnotations(GameObject.FindGameObjectsWithTag("swipe"));
-            DeleteAnnotations(GameObject.FindGameObjectsWithTag("circle"));
-            DeleteAnnotations(GameObject.FindGameObjectsWithTag("arrow"));
+            // any new annotation prefabs added must have the "annotation" tag added to them in the inspector 
+            DeleteAnnotations(GameObject.FindGameObjectsWithTag("annotation"));
         }
     }
     void DeleteAnnotations(GameObject[] objs)
