@@ -1779,7 +1779,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -457.75}
-  m_SizeDelta: {x: 1280, y: 915.5}
+  m_SizeDelta: {x: 1280, y: 915}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &381041444
 MonoBehaviour:
@@ -1843,10 +1843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circle: {fileID: 6611438952012512747, guid: 20d5cf20297115a45ba7ca26f6d75a95, type: 3}
-  addCircleBtn: {fileID: 52740226}
   ButtonManager: {fileID: 1166516373}
-  circleActiveSprite: {fileID: 1759058688}
-  circleInactiveSprite: {fileID: 1583351137}
 --- !u!114 &385477981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4743,10 +4740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circle: {fileID: 6611438952012512747, guid: 20d5cf20297115a45ba7ca26f6d75a95, type: 3}
-  addCircleBtn: {fileID: 52740226}
   ButtonManager: {fileID: 1166516373}
-  circleActiveSprite: {fileID: 1759058688}
-  circleInactiveSprite: {fileID: 1583351137}
 --- !u!4 &903336870
 Transform:
   m_ObjectHideFlags: 0
@@ -6074,7 +6068,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: -2432090755550338912, guid: 790eb9365ee4540848bfa0d7b1634b13, type: 3}
 --- !u!1 &1350326718 stripped
@@ -6094,7 +6088,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: fa298303807354b5e8cf48eadc202854, type: 3}
 --- !u!1 &1354152443
@@ -8349,8 +8343,6 @@ MonoBehaviour:
   connectionStatus: {fileID: 1487963996}
   RoomNameInput: {fileID: 1379325229}
   RoomName: 
-  selectKidneyBtn: {fileID: 208082235}
-  selectLungBtn: {fileID: 1126304249}
   CreateRoomBtn: {fileID: 16422915}
   CreateRoomPnl: {fileID: 150347909}
   modelDropdown: {fileID: 741548805}
@@ -9368,10 +9360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circle: {fileID: 6611438952012512747, guid: 20d5cf20297115a45ba7ca26f6d75a95, type: 3}
-  addCircleBtn: {fileID: 52740226}
   ButtonManager: {fileID: 1166516373}
-  circleActiveSprite: {fileID: 1759058688}
-  circleInactiveSprite: {fileID: 1583351137}
 --- !u!114 &1590949373096367455
 MonoBehaviour:
   m_ObjectHideFlags: 0

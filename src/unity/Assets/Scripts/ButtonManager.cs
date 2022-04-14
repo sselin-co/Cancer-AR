@@ -3,67 +3,60 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using TMPro;
-
+using System.Collections;
 
 public class ButtonManager : MonoBehaviour
 {
     // translating 
     Lean.Touch.LeanTranslate modelTranslateScript;
-
     // scaling
     Lean.Touch.LeanScale modelScaleScript;
-
     // rotation 
     Lean.Touch.LeanRotateCustomAxisX modelRotateXScript;
     Lean.Touch.LeanRotateCustomAxisY modelRotateYScript;
     Lean.Touch.LeanRotateCustomAxisZ modelRotateZScript;
-
     // model outer shell + label
     GameObject shell;
     [SerializeField] GameObject shellLbl;
     [SerializeField] GameObject shellActiveSprite;
     [SerializeField] GameObject shellInactiveSprite;
     BoxCollider shellColl;
-
     // annotation panel, annotate texts + input 
     List<GameObject> texts = new List<GameObject>();
     [SerializeField] GameObject annotationPnl;
     [SerializeField] GameObject annotationInputText;
     private int textsCounter = 0;
-
     [SerializeField] GameObject helpBtn;
     [SerializeField] GameObject helpPnl;
-
     // panel displayed after cancer nodule is selected
     [SerializeField] GameObject nodulePnl;
-
     // label used for each model (kidney or lungs)
     [SerializeField] GameObject modeLbl;
-    
     // models
     [SerializeField] GameObject lungs;
     [SerializeField] GameObject kidneys;
-
     // initial screen mode selection variable 
     [SerializeField] GameObject modelSelectPnl;
-    
     // axis status based on number of taps
     string axisStatus = "";
     [SerializeField] GameObject modeImage;
     public Sprite xImage;
     public Sprite yImage;
     public Sprite zImage;
-
     // dropdown object for model selection
     public GameObject modelDropdown;
-
     // Used for the 1-click annotations (circle, arrow) to act as the anchor object
     public GameObject centralObject;
+    // Hashtable to store what model is being used and any other custom properties
+
 
     // gets dropdown value and displays the appropriate model
     public void ModelSelect()
     {
         int val = modelDropdown.GetComponent<TMP_Dropdown>().value;
+        // TODO: set custom properties for model selection
+        PhotonNetwork.CurrentRoom.CustomProperties["model"] = val;
+        print(PhotonNetwork.CurrentRoom.CustomProperties["model"]);
         switch (val)
         {
             case 0:
@@ -86,7 +79,6 @@ public class ButtonManager : MonoBehaviour
             lungs = PhotonNetwork.Instantiate("models/model", lungs.transform.position, lungs.transform.rotation, 0);
             centralObject = GameObject.Find("ImageTarget/model/model/default");
         }
-
         Setup();
     }
 
@@ -100,10 +92,8 @@ public class ButtonManager : MonoBehaviour
             kidneys = PhotonNetwork.Instantiate("models/model2", kidneys.transform.position, kidneys.transform.rotation, 0);
             centralObject = GameObject.Find("ImageTarget/model2/model/default");
         }
-
         Setup();
     }
-
 
     // functions is called on initial load
     private void Setup()
@@ -116,7 +106,7 @@ public class ButtonManager : MonoBehaviour
         modelRotateZScript = GameObject.FindWithTag("model").GetComponent<Lean.Touch.LeanRotateCustomAxisZ>();
         shell = GameObject.FindWithTag("model");
         shellColl = GameObject.FindWithTag("model").GetComponent<BoxCollider>();
-        
+
         modelSelectPnl.SetActive(false);
         helpPnl.SetActive(true);
         // detect finger tap         
@@ -259,5 +249,5 @@ public class ButtonManager : MonoBehaviour
     {
         Application.Quit();
     }
-    
+
 }

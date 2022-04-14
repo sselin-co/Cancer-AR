@@ -10,12 +10,8 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
     [SerializeField]
     private GameObject circle;
     [SerializeField]
-    private GameObject addCircleBtn;
-    [SerializeField]
     private GameObject ButtonManager;
     private bool addCircleEnabled = false;
-    [SerializeField] public GameObject circleActiveSprite;
-    [SerializeField] public GameObject circleInactiveSprite;
     private GameObject circleAnnotation;
 
 
@@ -47,7 +43,7 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
             {
                 addCircleEnabled = false;
                 PhotonView view = PhotonView.Find(2);
-                circleAnnotation = PhotonNetwork.Instantiate(circle.name, hitVector, Quaternion.FromToRotation(Vector3.down, hit.normal));
+                circleAnnotation = PhotonNetwork.Instantiate(circle.name, hitVector, Quaternion.FromToRotation(Vector3.up, hit.normal));
                 circleAnnotation.transform.SetParent(ButtonManager.GetComponent<ButtonManager>().centralObject.transform.parent);
                 view.RPC("AddCircleLabel", RpcTarget.Others, circleAnnotation.GetPhotonView().ViewID);
             }
@@ -61,8 +57,6 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
             }
 
         }
-
-
     }
 
     // Finds instantiated circle GameObject from Update() RPC and appends it to the client's parent centralObject
@@ -79,15 +73,10 @@ public class CircleAnnotation : MonoBehaviour, IPunInstantiateMagicCallback
         if (!addCircleEnabled)
         {
             addCircleEnabled = true;
-           // circleActiveSprite.SetActive(true);
-           // circleInactiveSprite.SetActive(false);
         }
         else
         {
             addCircleEnabled = false;
-           // circleActiveSprite.SetActive(false);
-          //  circleInactiveSprite.SetActive(true);
         }
-
     }
 }

@@ -72,7 +72,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         }
 
         RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 4;
+        roomOptions.CustomRoomProperties = new ExitGames.Client.Photon.Hashtable();
+        // -999 is default value that isn't set to a specific model
+        roomOptions.CustomRoomProperties.Add("model", -999);
+        roomOptions.CustomRoomPropertiesForLobby = new string[] { "model" };
+        roomOptions.MaxPlayers = 2;
         Debug.Log("Connected to Photon");
 
         // check to make sure room name is not empty
@@ -101,6 +105,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         connectionStatus.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name + " - Player #: " +
         PhotonNetwork.CurrentRoom.PlayerCount + " - Ping: " + ServerPing;
         connectionStatus.color = Color.cyan;
+        // TODO: read in model from room properties and set it here, bypassing the dropdown menu
         DisplayModelButtons();
         Debug.Log("Joined Room successfully " + PhotonNetwork.CurrentRoom.Name);
 

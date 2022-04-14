@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 6743064566873024868}
   - component: {fileID: -2305699041565323527}
   - component: {fileID: -8436198393088086714}
+  - component: {fileID: 2920257371303042957}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: annotation
@@ -226,6 +227,19 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 1
   m_UseLocal: 1
+--- !u!65 &2920257371303042957
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6743064566873024871}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.5136435, z: 1}
+  m_Center: {x: 0, y: 0.770465, z: 0}
 --- !u!1 &8312100843202097909
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +249,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4972495662322008294}
-  - component: {fileID: 3137840933346438556}
   m_Layer: 0
   m_Name: arrow 1
   m_TagString: Untagged
@@ -259,22 +272,3 @@ Transform:
   m_Father: {fileID: 6743064566873024868}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &3137840933346438556
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8312100843202097909}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8fd575f4196d1bc41990ffd7a3b151db, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
